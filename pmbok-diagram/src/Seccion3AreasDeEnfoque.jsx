@@ -134,15 +134,36 @@ export default function Seccion3AreasDeEnfoque() {
           <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "1px" }}>PMBOK 8 – PMI 2025 – GUIA INTERACTIVA</div>
         </div>
 
+        {/* Back button */}
         <button
           onClick={() => navigate("/")}
           style={{
-            display: "flex", alignItems: "center", gap: "8px", background: "#3a4fc8", border: "none", borderRadius: "8px",
-            color: "#fff", padding: "10px 20px", fontSize: "14px", fontWeight: 600, cursor: "pointer", transition: "0.2s"
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "#3a4fc8",
+            border: "none",
+            borderRadius: "8px",
+            color: "#fff",
+            padding: "10px 20px",
+            fontSize: "14px",
+            fontWeight: 600,
+            cursor: "pointer",
+            letterSpacing: "0.01em",
+            transition: "background 0.18s",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "#4a5fd8")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "#3a4fc8")}
         >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M10 3L5 8L10 13"
+              stroke="#fff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
           Inicio
         </button>
       </div>

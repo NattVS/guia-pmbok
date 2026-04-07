@@ -223,7 +223,7 @@ export default function Seccion1Principios() {
         {/* Breadcrumb */}
         <div style={{ 
           fontSize: "13px", 
-          color: BLUE_ACCENT, 
+          color:"rgba(255,255,255,0.5)", 
           marginBottom: "20px", 
           opacity: headerVisible ? 0.8 : 0, 
           transition: "opacity 0.4s" 
