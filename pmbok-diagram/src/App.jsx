@@ -57,10 +57,6 @@ function describeSlice(cx, cy, r1, r2, startAngle, endAngle) {
   return `M ${s1.x} ${s1.y} A ${r1} ${r1} 0 ${la} 1 ${e1.x} ${e1.y} L ${e2.x} ${e2.y} A ${r2} ${r2} 0 ${la} 0 ${s2.x} ${s2.y} Z`;
 }
 
-/**
- * Esta función detecta si el texto está en la parte inferior del círculo
- * (entre 90 y 270 grados) y lo gira 180 grados para que siempre sea legible.
- */
 function readableRotation(midAngleDeg) {
   const a = ((midAngleDeg % 360) + 360) % 360;
   return (a > 90 && a < 270) ? a + 180 : a;
@@ -76,32 +72,52 @@ export default function PMBOKDiagram() {
   const R_INNER = 120, R_CENTER = 70;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0a0f1d", color: WHITE, padding: "40px", boxSizing: "border-box", fontFamily: "sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#0a0f1d", color: WHITE, padding: "20px", boxSizing: "border-box", fontFamily: "sans-serif" }}>
       
-      {/* Header Section */}
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "40px", alignItems: "center" }}>
+      {/* Header Section - Responsive Flex */}
+      <div style={{ 
+        display: "flex", 
+        flexWrap: "wrap",
+        gap: "20px",
+        justifyContent: "space-between", 
+        marginBottom: "40px", 
+        alignItems: "center" 
+      }}>
         <div style={{ border: "1px solid rgba(255,255,255,0.3)", padding: "10px 20px", borderRadius: "4px" }}>
           <div style={{ fontWeight: 700 }}>PMBOK® Guide</div>
           <div style={{ fontSize: "12px", opacity: 0.6 }}>Octava Edición</div>
         </div>
-        <div style={{ textAlign: "center" }}>
-          <h1 style={{ fontSize: "28px", margin: 0, fontWeight: 300 }}>El ADN de la gestión de proyectos de valor</h1>
-          <div style={{ fontSize: "12px", opacity: 0.5, letterSpacing: "4px", marginTop: "8px" }}>PMBOK 8 – PMI 2025 – GUÍA INTERACTIVA</div>
+
+        <div style={{ textAlign: "center", flex: "1 1 300px" }}>
+          <h1 style={{ fontSize: "clamp(18px, 4vw, 28px)", margin: 0, fontWeight: 300 }}>
+            El ADN de la gestión de proyectos de valor
+          </h1>
+          <div style={{ fontSize: "10px", opacity: 0.5, letterSpacing: "2px", marginTop: "8px" }}>
+            PMBOK 8 – PMI 2025 – GUÍA INTERACTIVA
+          </div>
         </div>
-        <div style={{ display: "flex", gap: "30px" }}>
+
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
           {[{ n: 6, l: "Principios" }, { n: 7, l: "Dominios" }, { n: 5, l: "Áreas" }, { n: 40, l: "Procesos" }].map(s => (
-            <div key={s.l} style={{ textAlign: "center" }}>
-              <div style={{ color: GOLD, fontSize: "24px", fontWeight: 700 }}>{s.n}</div>
-              <div style={{ fontSize: "11px", opacity: 0.7, textTransform: "uppercase" }}>{s.l}</div>
+            <div key={s.l} style={{ textAlign: "center", minWidth: "60px" }}>
+              <div style={{ color: GOLD, fontSize: "20px", fontWeight: 700 }}>{s.n}</div>
+              <div style={{ fontSize: "9px", opacity: 0.7, textTransform: "uppercase" }}>{s.l}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Main Diagram Area */}
-      <div style={{ position: "relative", width: "1000px", height: "700px", margin: "0 auto" }}>
+      {/* Main Diagram Area - Responsive Aspect Ratio */}
+      <div style={{ 
+        position: "relative", 
+        width: "100%", 
+        maxWidth: "1000px", 
+        aspectRatio: "10 / 7", // Keeps coordinates stable
+        margin: "0 auto",
+        fontSize: "min(1.2vw, 14px)" // Scales base text for cards
+      }}>
         
-        {/* Floating Cards (Absolute Positioning) */}
+        {/* Floating Cards */}
         {CARD_DATA.map(card => (
           <div
             key={card.id}
@@ -118,33 +134,40 @@ export default function PMBOKDiagram() {
               transform: `translate(${card.tx}, ${card.ty}) scale(${hovered === card.id ? 1.05 : 1})`,
               background: card.color,
               border: `1px solid ${card.border}`,
-              padding: "15px",
-              borderRadius: "12px",
-              minWidth: "160px",
+              padding: "1.2%",
+              borderRadius: "8px",
+              width: "16%", // Scalable width
+              minWidth: "120px",
               transition: "all 0.3s ease",
               zIndex: 20,
               boxShadow: hovered === card.id ? `0 0 20px ${card.border}44` : "none"
             }}
           >
-            <div style={{ fontSize: "12px", fontWeight: 800, marginBottom: "4px", color: card.border }}>
+            <div style={{ fontSize: "0.85em", fontWeight: 800, marginBottom: "4px", color: card.border }}>
               {card.label}
             </div>
-            <div style={{ fontSize: "12px", lineHeight: "1.4", whiteSpace: "pre-line" }}>
+            <div style={{ fontSize: "0.8em", lineHeight: "1.4", whiteSpace: "pre-line" }}>
               {card.sub}
             </div>
           </div>
         ))}
 
-        {/* Center Wheel Container */}
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "550px" }}>
+        {/* Center Wheel Container - Responsive Width */}
+        <div style={{ 
+          position: "absolute", 
+          top: "50%", 
+          left: "50%", 
+          transform: "translate(-50%, -50%)", 
+          width: "55%" // Scaled to fit parent 
+        }}>
           <svg viewBox="0 0 600 600" width="100%" style={{ overflow: "visible" }}>
             
-            {/* 1. Outer Phase Ring (5 sections) */}
+            {/* 1. Outer Phase Ring */}
             {PHASES.map((p, i) => {
               const start = i * 72, end = (i + 1) * 72;
               const mid = start + 36;
               const tPos = polarToXY(mid, (R_OUTER + R_OUTER_IN) / 2, CX, CY);
-              const rot = readableRotation(mid); // Aplicar rotación inteligente
+              const rot = readableRotation(mid);
               const lines = p.label.split('\n');
 
               return (
@@ -166,7 +189,7 @@ export default function PMBOKDiagram() {
               );
             })}
 
-            {/* 2. Middle Domain Ring (8 sections) */}
+            {/* 2. Middle Domain Ring */}
             {DOMAINS.map((d, i) => {
               const start = i * 45, end = (i + 1) * 45;
               const mid = start + 22.5;
@@ -188,7 +211,7 @@ export default function PMBOKDiagram() {
               );
             })}
 
-            {/* 3. Inner Principle Ring (8 sections) */}
+            {/* 3. Inner Principle Ring */}
             {PRINCIPLES.map((pr, i) => {
               const start = i * 45, end = (i + 1) * 45;
               const mid = start + 22.5;
