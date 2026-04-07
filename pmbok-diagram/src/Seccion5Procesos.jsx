@@ -1,5 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+// --- COLOR PALETTE (Light Blue / Cyan Theme) ---
+const BLUE_ACCENT = "#38bdf8"; 
+const BG_PAGE = "#082f49";        
+const BG_CARD = "rgba(12, 74, 110, 0.4)"; 
+const BORDER_CARD = "rgba(56, 189, 248, 0.3)"; 
+const NAV_BG = "#0e1628";
 
 const Seccion5Procesos = () => {
   const navigate = useNavigate();
@@ -63,96 +70,88 @@ const Seccion5Procesos = () => {
     }
   ];
 
-  // --- BLUE THEME PALETTE ---
-  const BLUE_ACCENT = "#7eb6e2";       // Light blue for "Sección 5"
-  const BG_PAGE = "#3a506b";            // Steel blue background from image
-  const BG_NAV = "#0e1628";             // Top navbar dark navy
-  const BORDER_COLOR = "rgba(165, 191, 221, 0.3)"; // Muted blue borders
-  const HEADER_BG = "rgba(255, 255, 255, 0.08)";
-
   const styles = {
     container: {
       backgroundColor: BG_PAGE,
       minHeight: '100vh',
       color: '#fff',
       paddingBottom: '60px',
-      fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+      fontFamily: 'system-ui, -apple-system, sans-serif'
     },
     header: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '20px 40px',
-      backgroundColor: BG_NAV,
-      marginBottom: '40px'
+      padding: '14px 32px',
+      backgroundColor: NAV_BG,
+      position: 'sticky',
+      top: 0,
+      zIndex: 100,
+      borderBottom: '1px solid rgba(255,255,255,0.05)'
     },
     contentArea: {
-      maxWidth: '1280px',
+      maxWidth: '1350px',
       margin: '0 auto',
-      padding: '0 40px'
-    },
-    titleSection: {
-      marginBottom: '40px'
+      padding: '40px'
     },
     breadcrumb: {
-      fontSize: '14px',
-      color: 'rgba(255,255,255,0.6)',
-      marginBottom: '10px'
+      fontSize: '13px',
+      color: BLUE_ACCENT,
+      marginBottom: '15px'
     },
     sectionLabel: {
       color: BLUE_ACCENT,
       fontWeight: '700',
-      fontSize: '16px',
+      fontSize: '14px',
       textTransform: 'uppercase',
-      letterSpacing: '1px'
+      letterSpacing: '1px',
+      marginBottom: '8px'
     },
     title: {
-      fontSize: '56px',
-      fontWeight: '800',
-      margin: '8px 0 12px 0'
-    },
+        fontSize: "clamp(28px, 4vw, 48px)",
+        fontWeight: 700,
+        margin: "0 0 16px",
+        letterSpacing: "-0.02em",
+        lineHeight: 1.1,
+        transition: "opacity 0.45s ease 0.06s, transform 0.45s ease 0.06s",
+      },
     tableContainer: {
       overflowX: 'auto',
       borderRadius: '16px',
-      border: `1px solid ${BORDER_COLOR}`,
-      boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+      border: `1.5px solid ${BORDER_CARD}`,
+      boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+      backgroundColor: 'rgba(0,0,0,0.2)'
     },
     table: {
       width: '100%',
       borderCollapse: 'collapse',
-      backgroundColor: 'rgba(255, 255, 255, 0.03)'
     },
     th: {
-      backgroundColor: HEADER_BG,
-      padding: '18px 15px',
-      fontSize: '14px',
-      fontWeight: '600',
-      border: `1px solid ${BORDER_COLOR}`,
+      backgroundColor: 'rgba(56, 189, 248, 0.15)',
+      padding: '20px 15px',
+      fontSize: '13px',
+      fontWeight: '700',
+      border: `1px solid ${BORDER_CARD}`,
       textAlign: 'center',
-      color: 'rgba(255,255,255,0.9)'
+      color: BLUE_ACCENT,
+      textTransform: 'uppercase',
+      letterSpacing: '0.5px'
     },
     td: {
-      padding: '14px 15px',
-      fontSize: '13px',
-      border: `1px solid ${BORDER_COLOR}`,
+      padding: '14px 18px',
+      fontSize: '13.5px',
+      border: `1px solid ${BORDER_CARD}`,
       verticalAlign: 'middle',
-      lineHeight: '1.5',
-      color: 'rgba(255,255,255,0.85)'
+      lineHeight: '1.4',
+      color: '#e0f2fe'
     },
     domainCell: {
       textAlign: 'center',
-      fontWeight: '700',
-      backgroundColor: 'rgba(255,255,255,0.05)',
-      fontSize: '15px'
-    },
-    navButton: {
-      background: 'rgba(255,255,255,0.08)',
-      border: '1px solid rgba(255,255,255,0.2)',
+      fontWeight: '800',
+      backgroundColor: 'rgba(56, 189, 248, 0.05)',
+      fontSize: '15px',
       color: '#fff',
-      padding: '8px 24px',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      transition: 'all 0.2s ease'
+      minWidth: '140px'
     }
   };
 
@@ -160,14 +159,16 @@ const Seccion5Procesos = () => {
     <div style={styles.container}>
       {/* Top Navigation */}
       <div style={styles.header}>
-        <div style={{ border: '1px solid #fff', padding: '6px 12px', fontSize: '12px', borderRadius: '4px' }}>
-          PMBOK® Guide <br /> <span style={{ opacity: 0.5 }}>Octava Edición</span>
+        <div style={{ border: '1px solid rgba(255,255,255,0.4)', padding: '7px 14px', borderRadius: '6px' }}>
+          <b style={{ fontSize: '12px' }}>PMBOK® Guide</b>
+          <div style={{ fontSize: '10px', opacity: 0.6 }}>Octava Edición</div>
         </div>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontWeight: '600', fontSize: '18px' }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: '12px', opacity: 0.4, letterSpacing: '1.5px' }}>PMBOK 8 - PMI 2025 - GUIA INTERACTIVA</div>
+          <div style={{ fontWeight: '700', fontSize: '18px' }}>El ADN de la gestión de proyectos de valor</div>
+          <div style={{ fontSize: '11px', opacity: 0.5, letterSpacing: '1px' }}>PMBOK 8 – PMI 2025</div>
         </div>
-{/* Back button */}
+        
+        {/* Back button */}
         <button
           onClick={() => navigate("/")}
           style={{
@@ -203,12 +204,17 @@ const Seccion5Procesos = () => {
 
       <div style={styles.contentArea}>
         {/* Title and Intro */}
-        <div style={styles.titleSection}>
-          <div style={styles.breadcrumb}>Inicio / <span style={{color: '#fff'}}>Sección 5</span></div>
+        <div style={{ marginBottom: '40px' }}>
+          <div style={styles.breadcrumb}>
+            <span style={{ cursor: 'pointer' }} onClick={() => navigate("/")}>Inicio</span>
+            <span style={{ margin: '0 8px', opacity: 0.5, color: '#fff' }}>/</span>
+            <span style={{ color: '#fff' }}>Sección 5</span>
+          </div>
           <div style={styles.sectionLabel}>Sección 5</div>
           <h1 style={styles.title}>Procesos</h1>
-          <p style={{ opacity: 0.7, fontSize: '18px', maxWidth: '800px' }}>
-            El PMBOK 8 incluye 5 áreas de enfoque, con 40 procesos integrados en los 7 dominios.
+          <p style={{ color: '#bae6fd', fontSize: '18px', maxWidth: '850px', lineHeight: '1.6' }}>
+            El PMBOK 8 integra <b>40 procesos</b> fundamentales distribuidos en las 5 áreas de enfoque y 
+            mapeados a través de los 7 dominios de desempeño.
           </p>
         </div>
 
@@ -217,7 +223,7 @@ const Seccion5Procesos = () => {
           <table style={styles.table}>
             <thead>
               <tr>
-                <th style={styles.th}>Áreas de Enfoque / Dominios</th>
+                <th style={{ ...styles.th, textAlign: 'left', color: '#fff' }}>Dominios / Enfoque</th>
                 <th style={styles.th}>Inicio</th>
                 <th style={styles.th}>Planeación</th>
                 <th style={styles.th}>Ejecución</th>
@@ -229,7 +235,7 @@ const Seccion5Procesos = () => {
               {tableData.map((group, gIdx) => (
                 <React.Fragment key={gIdx}>
                   {group.rows.map((row, rIdx) => (
-                    <tr key={`${gIdx}-${rIdx}`}>
+                    <tr key={`${gIdx}-${rIdx}`} style={{ backgroundColor: rIdx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
                       {rIdx === 0 && (
                         <td 
                           rowSpan={group.rows.length} 

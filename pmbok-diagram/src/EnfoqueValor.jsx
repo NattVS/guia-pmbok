@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// --- Estructura de la info para Visión Holistica ---
+// --- Estructura de la info para Enfocarse en el Valor (principio 2) ---
 const VISION_DATA = {
-  id: "01 - 06",
-  titulo: "Visión Holística",
-  subtitulo: "Adopt a Holistic View",
-  descripcion: "Ver el proyecto como un sistema integrado considerando todas las interdependencias, desde el inicio hasta el cierre.",
+  id: "02 - 06",
+  titulo: "Enfocarse en el Valor",
+  subtitulo: "Focus on Value",
+  descripcion: "El valor es el indicador final de éxito del proyecto. Todo el trabajo debe orientarse a maximizar el retorno sobre la inversión, sea financiero o no financiero.",
   definicion: {
     subtitulo: "Definición PMBOK 8",
-    info: "Entender y gestionar el proyecto considerando todos sus componentes e interdependencias como parte de un sistema mayor. Abarca el pensamiento sistémico y la visión de patrones."
+    info: "El valor es el exceso de beneficios (financieros y no financieros) sobre la inversión. El indicador de éxito no es entregar el entregable, sino lograr el resultado que crea valor real."
   },
   puntosClave: [
-    "Pensamiento sistémico: ver el TODO, no sólo las partes aisladas",
-    "Alinear el proyecto con los objetivos estratégicos de la organización",
-    "Tomar decisiones considerando el ecosistema completo del proyecto",
-    "Gestión proactiva de riesgos a través de todos los dominios",
-    "Fomenta comunicación clara y consistente entre stakeholders"
+    "Cambiar el foco: de ENTREGABLES (outputs) a RESULTADOS (outcomes)",
+    "Valor tangible: dinero, infraestructura, productividad, market share",
+    "Valor intangible: reputación, conocimiento, bienestar, cumplimiento",
+    "Evaluar el valor continuamente a lo largo del ciclo de vida",
+    "Si el proyecto no entrega valor, puede justificarse su terminación"
   ],
   dominiosRelacionados: [
     "Gobernanza", "Alcance", "Cronograma", "Finanzas", "Interesados", "Recursos", "Riesgos"
   ],
   ejemplo: {
     subtitulo: "Ejemplo en Acción",
-    info: "Una ONG lanza un proyecto de salud pública. Con visión holística, el equipo identifica una iniciativa gubernamental paralela y adapta su comunicación para alinearse, obteniendo financiamiento adicional."
+    info: "Una empresa despliega nuevo software. Enfoque en valor: descubren que la cultura organizacional valora la simplicidad → reducen funciones → mayor adopción y satisfacción."
   },
   tip: {
     subtitulo: "TIP de Práctica",
-    info: "El pensamiento sistémico NO es analizar cada parte por separado — es entender cómo las partes interactúan. Un cambio en ALCANCE impacta CRONOGRAMA, COSTOS, RIESGOS y STAKEHOLDERS simultáneamente."
+    info: "Pregunta clave: ¿Estamos entregando lo que el cliente PIDIÓ, o lo que el cliente NECESITA? La diferencia define si hay valor real o solo cumplimiento técnico."
   }
 };
 
@@ -40,7 +40,7 @@ const NAV_BG = "#0e1628";
 
 const TABS = ["Definición", "Puntos Clave", "Ejemplo", "Tip"];
 
-export default function DetalleVisionHolistica() {
+export default function DetalleEnfocarseEnValor() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Definición");
   const [visible, setVisible] = useState(false);
@@ -119,7 +119,7 @@ export default function DetalleVisionHolistica() {
         <div style={{ background: BG_CARD, border: `1.5px solid ${BORDER_CARD}`, borderRadius: "20px", padding: "35px", marginBottom: "30px", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
-              <div style={{ color: BLUE_ACCENT, fontSize: "13px", fontWeight: 700, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Principio 01</div>
+              <div style={{ color: BLUE_ACCENT, fontSize: "13px", fontWeight: 700, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Principio 02</div>
                <h1 style={{
                   fontSize: "clamp(28px, 4vw, 48px)",
                   fontWeight: 700,

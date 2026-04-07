@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// --- Estructura de la info para Visión Holistica ---
-const VISION_DATA = {
-  id: "01 - 06",
-  titulo: "Visión Holística",
-  subtitulo: "Adopt a Holistic View",
-  descripcion: "Ver el proyecto como un sistema integrado considerando todas las interdependencias, desde el inicio hasta el cierre.",
+// --- Estructura de la info para Cultura de Sostenibilidad (principio 5) ---
+const CULTURA_SOSTENIBILIDAD_DATA = {
+  id: "05 - 06",
+  titulo: "Cultura de Sostenibilidad",
+  subtitulo: "Integrate Sustainability",
+  descripcion: "Integrar la sostenibilidad en todas las áreas del proyecto: considerando personas, planeta, sociedad y valor económico (Triple Bottom Line).",
   definicion: {
     subtitulo: "Definición PMBOK 8",
-    info: "Entender y gestionar el proyecto considerando todos sus componentes e interdependencias como parte de un sistema mayor. Abarca el pensamiento sistémico y la visión de patrones."
+    info: "Integrar prácticas de sostenibilidad en todas las áreas del proyecto, a través de todas las fases del ciclo de vida. Considerar personas, planeta, sociedad y valor económico de manera equilibrada."
   },
   puntosClave: [
-    "Pensamiento sistémico: ver el TODO, no sólo las partes aisladas",
-    "Alinear el proyecto con los objetivos estratégicos de la organización",
-    "Tomar decisiones considerando el ecosistema completo del proyecto",
-    "Gestión proactiva de riesgos a través de todos los dominios",
-    "Fomenta comunicación clara y consistente entre stakeholders"
+    "Triple Bottom Line: Personas (social) + Planeta (ambiental) + Prosperidad (económica)",
+    "Pirámide: Compensar → Restaurar → Minimizar → EVITAR",
+    "ESG: Environmental, Social & Governance en decisiones de proyecto",
+    "Beneficios: menor riesgo legal, mejor reputación, ahorro a largo plazo",
+    "Los riesgos de sostenibilidad pueden comprometer los resultados del proyecto"
   ],
   dominiosRelacionados: [
     "Gobernanza", "Alcance", "Cronograma", "Finanzas", "Interesados", "Recursos", "Riesgos"
   ],
   ejemplo: {
     subtitulo: "Ejemplo en Acción",
-    info: "Una ONG lanza un proyecto de salud pública. Con visión holística, el equipo identifica una iniciativa gubernamental paralela y adapta su comunicación para alinearse, obteniendo financiamiento adicional."
+    info: "Proyecto de construcción necesita materiales. Con sostenibilidad: seleccionar fuentes de menor impacto ambiental, involucrar comunidades locales, usar concreto reciclado."
   },
   tip: {
     subtitulo: "TIP de Práctica",
-    info: "El pensamiento sistémico NO es analizar cada parte por separado — es entender cómo las partes interactúan. Un cambio en ALCANCE impacta CRONOGRAMA, COSTOS, RIESGOS y STAKEHOLDERS simultáneamente."
+    info: "El PMBOK 8 eleva la sostenibilidad de 'buena práctica opcional' a PRINCIPIO FUNDAMENTAL. En el examen PMP, considera siempre el impacto ESG en las decisiones de proyecto."
   }
 };
 
@@ -40,7 +40,7 @@ const NAV_BG = "#0e1628";
 
 const TABS = ["Definición", "Puntos Clave", "Ejemplo", "Tip"];
 
-export default function DetalleVisionHolistica() {
+export default function DetalleCulturaDeSostenibilidad() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Definición");
   const [visible, setVisible] = useState(false);
@@ -112,14 +112,14 @@ export default function DetalleVisionHolistica() {
         <div style={{ fontSize: "13px", color: "rgba(200,215,255,0.85)", marginBottom: "25px" }}>
           Inicio <span style={{ margin: "0 8px", opacity: 0.4, color: "#fff" , fontWeight: 200}}>/</span> 
           Sección 1 <span style={{ margin: "0 8px", opacity: 0.4, color: "#fff", fontWeight: 200 }}>/</span> 
-          <span style={{ color: "#fff", fontWeight: 600 }}>{VISION_DATA.titulo}</span>
+          <span style={{ color: "#fff", fontWeight: 600 }}>{CULTURA_SOSTENIBILIDAD_DATA.titulo}</span>
         </div>
 
         {/* ── HERO CARD ── */}
         <div style={{ background: BG_CARD, border: `1.5px solid ${BORDER_CARD}`, borderRadius: "20px", padding: "35px", marginBottom: "30px", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
-              <div style={{ color: BLUE_ACCENT, fontSize: "13px", fontWeight: 700, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Principio 01</div>
+              <div style={{ color: BLUE_ACCENT, fontSize: "13px", fontWeight: 700, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Principio 05</div>
                <h1 style={{
                   fontSize: "clamp(28px, 4vw, 48px)",
                   fontWeight: 700,
@@ -128,18 +128,18 @@ export default function DetalleVisionHolistica() {
                   lineHeight: 1.1,
                   transition: "opacity 0.45s ease 0.06s, transform 0.45s ease 0.06s",
                 }}>
-                {VISION_DATA.titulo}
+                {CULTURA_SOSTENIBILIDAD_DATA.titulo}
               </h1>
               <div style={{ color: BLUE_ACCENT, opacity: 0.9, fontSize: "14px", fontWeight: 600, marginBottom: "15px" }}>
-                {VISION_DATA.subtitulo}
+                {CULTURA_SOSTENIBILIDAD_DATA.subtitulo}
               </div>
             </div>
             <span style={{ fontSize: "14px", fontWeight: 700, color: BLUE_ACCENT }}>
-               {VISION_DATA.id}
+               {CULTURA_SOSTENIBILIDAD_DATA.id}
             </span>
           </div>
           <div style={{ color: "#e0f2fe", fontSize: "16px", lineHeight: "1.7", maxWidth: "850px" }}>
-            {VISION_DATA.descripcion}
+            {CULTURA_SOSTENIBILIDAD_DATA.descripcion}
           </div>
         </div>
 
@@ -179,8 +179,8 @@ export default function DetalleVisionHolistica() {
 
           {activeTab === "Definición" && (
             <div>
-              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{VISION_DATA.definicion.subtitulo}</h3>
-              <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#f0f9ff", margin: 0 }}>{VISION_DATA.definicion.info}</p>
+              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{CULTURA_SOSTENIBILIDAD_DATA.definicion.subtitulo}</h3>
+              <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#f0f9ff", margin: 0 }}>{CULTURA_SOSTENIBILIDAD_DATA.definicion.info}</p>
             </div>
           )}
 
@@ -188,7 +188,7 @@ export default function DetalleVisionHolistica() {
             <div>
               <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "20px" }}>Puntos Clave</h3>
               <ul style={{ padding: 0, margin: "0 0 30px 0", listStyle: "none" }}>
-                {VISION_DATA.puntosClave.map((punto, i) => (
+                {CULTURA_SOSTENIBILIDAD_DATA.puntosClave.map((punto, i) => (
                   <li key={i} style={{ color: "#f0f9ff", marginBottom: "14px", fontSize: "15px", display: "flex", gap: "12px" }}>
                     <span style={{ color: BLUE_ACCENT }}>•</span> {punto}
                   </li>
@@ -197,7 +197,7 @@ export default function DetalleVisionHolistica() {
               
               <h4 style={{ color: BLUE_ACCENT, fontSize: "11px", textTransform: "uppercase", marginBottom: "15px", opacity: 0.8 }}>Dominios Relacionados</h4>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                {VISION_DATA.dominiosRelacionados.map((dominio, i) => (
+                {CULTURA_SOSTENIBILIDAD_DATA.dominiosRelacionados.map((dominio, i) => (
                   <span key={i} style={{ fontSize: "12px", padding: "6px 14px", background: "rgba(56, 189, 248, 0.1)", border: "1px solid rgba(56, 189, 248, 0.2)", borderRadius: "20px", color: "#bae6fd", fontWeight: 500 }}>
                     {dominio}
                   </span>
@@ -208,10 +208,10 @@ export default function DetalleVisionHolistica() {
 
           {activeTab === "Ejemplo" && (
             <div>
-              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{VISION_DATA.ejemplo.subtitulo}</h3>
+              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{CULTURA_SOSTENIBILIDAD_DATA.ejemplo.subtitulo}</h3>
               <div style={{ background: "rgba(12, 74, 110, 0.2)", padding: "25px", borderRadius: "12px", borderLeft: `4px solid ${BLUE_ACCENT}` }}>
                 <p style={{ fontSize: "16px", lineHeight: "1.8", color: "#f0f9ff", margin: 0, fontStyle: "italic" }}>
-                  {VISION_DATA.ejemplo.info}
+                  {CULTURA_SOSTENIBILIDAD_DATA.ejemplo.info}
                 </p>
               </div>
             </div>
@@ -219,9 +219,9 @@ export default function DetalleVisionHolistica() {
 
           {activeTab === "Tip" && (
             <div style={{ borderLeft: `4px solid ${BLUE_ACCENT}`, paddingLeft: "25px", background: "rgba(56, 189, 248, 0.05)", padding: "20px 25px", borderRadius: "0 12px 12px 0" }}>
-              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>{VISION_DATA.tip.subtitulo}</h3>
+              <h3 style={{ color: BLUE_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>{CULTURA_SOSTENIBILIDAD_DATA.tip.subtitulo}</h3>
               <p style={{ fontSize: "17px", lineHeight: "1.7", color: "#e0f2fe", margin: 0 }}>
-                "{VISION_DATA.tip.info}"
+                "{CULTURA_SOSTENIBILIDAD_DATA.tip.info}"
               </p>
             </div>
           )}

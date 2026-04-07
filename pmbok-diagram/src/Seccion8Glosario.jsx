@@ -23,10 +23,10 @@ const Seccion8Glosario = () => {
   ];
 
   // --- GREEN THEME PALETTE ---
-  const GREEN_ACCENT = "#4ade80";      // Bright emerald for "Sección 8"
-  const BG_PAGE = "#1a2e23";           // Deep forest green background
-  const BG_NAV = "#0e1628";            // Main navy nav remains consistent
-  const BORDER_COLOR = "rgba(74, 222, 128, 0.25)"; // Muted green borders
+  const GREEN_ACCENT = "#4ade80";      
+  const BG_PAGE = "#1a2e23";           
+  const BG_NAV = "#0e1628";            
+  const BORDER_COLOR = "rgba(74, 222, 128, 0.25)";
   const HEADER_BG = "rgba(74, 222, 128, 0.1)";
 
   const styles = {

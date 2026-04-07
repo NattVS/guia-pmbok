@@ -7,6 +7,7 @@ const DOMINIOS = [
     id: "01",
     total: "07",
     titulo: "Gobernanza",
+    route: "/dominios-de-desempeño/governanza",
     subtitulo: "Governance Domain",
     descripcion: "Marco de toma de decisiones que guía el proyecto hacia la entrega de valor. Es holístico e integra todos los demás dominios."
   },
@@ -14,6 +15,7 @@ const DOMINIOS = [
     id: "02",
     total: "07",
     titulo: "Alcance",
+    route: "/dominios-de-desempeño/alcance",
     subtitulo: "Scope Domain",
     descripcion: "Define y controla qué está incluido y excluido del proyecto, asegurando que todo el trabajo contribuya al valor esperado."
   },
@@ -21,6 +23,7 @@ const DOMINIOS = [
     id: "03",
     total: "07",
     titulo: "Cronograma",
+    route: "/areas-de-enfoque/cronograma",
     subtitulo: "Schedule Domain",
     descripcion: "Planificar y controlar el tiempo de entrega del proyecto para maximizar el valor en el momento oportuno."
   },
@@ -28,6 +31,7 @@ const DOMINIOS = [
     id: "04",
     total: "07",
     titulo: "Finanzas",
+    route: "/areas-de-enfoque/finanzas",
     subtitulo: "Finance Domain",
     descripcion: "Planificar, estimar, presupuestar y controlar los costos del proyecto para maximizar el valor por unidad de inversión."
   },
@@ -35,6 +39,7 @@ const DOMINIOS = [
     id: "05",
     total: "07",
     titulo: "Recursos",
+    route: "/areas-de-enfoque/recursos",
     subtitulo: "Resources Domain",
     descripcion: "Planificar, adquirir, desarrollar y controlar los recursos humanos y físicos necesarios para ejecutar el proyecto."
   },
@@ -42,6 +47,7 @@ const DOMINIOS = [
     id: "06",
     total: "07",
     titulo: "Riesgos",
+    route: "/areas-de-enfoque/riesgos",
     subtitulo: "Risk Domain",
     descripcion: "Identificar, analizar y responder a los riesgos (amenazas y oportunidades) que pueden afectar los objetivos del proyecto."
   },
@@ -49,61 +55,78 @@ const DOMINIOS = [
     id: "07",
     total: "07",
     titulo: "Interesados",
+    route: "/areas-de-enfoque/interesados",
     subtitulo: "Stakeholders Domain",
     descripcion: "Identificar y gestionar el compromiso de todos los que tienen interés en el proyecto o son impactados por él."
   }
 ];
 
+  // --- GREEN THEME PALETTE ---
+  const GREEN_THEME = {
+    bg: "#1a2e23",           // Deep forest green background
+    navBg: "#0e1628",        // Top navy navbar
+    cardBg: "rgba(255, 255, 255, 0.03)",
+    border: "rgba(74, 222, 128, 0.25)", // Muted green borders
+    accent: "#4ade80",      // Bright emerald accent
+  };
+
 // --- Sub-component: Dominio Card ---
-function DominioCard({ dominio, index, theme }) {
+function DominioCard({ area, index }) {
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100 + index * 80);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setVisible(true), 100 + index * 100);
+    return () => clearTimeout(t);
   }, [index]);
 
   return (
     <div
+      onClick={() => {
+        if (area.route) {
+          navigate(area.route);
+        }
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "rgba(255, 255, 255, 0.06)" : theme.cardBg,
-        border: `1px solid ${hovered ? theme.accent : theme.border}`,
-        borderRadius: "14px",
-        padding: "24px 22px",
+        flex: "1 1 280px",
+        background: hovered ? "rgba(255, 255, 255, 0.06)" : GREEN_THEME.cardBg,
+        border: `1.5px solid ${hovered ? GREEN_THEME.accent : GREEN_THEME.border}`,
+        borderRadius: "20px",
+        padding: "24px",
         display: "flex",
         flexDirection: "column",
-        gap: "6px",
-        transition: "all 0.3s ease",
+        transition: "all 0.4s ease",
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(15px)",
-        boxShadow: hovered ? `0 6px 20px ${theme.accent}15` : "none",
-        cursor: "default",
-        height: "100%",
-        boxSizing: "border-box"
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        boxShadow: hovered
+          ? "0 10px 40px rgba(0,0,0,0.4)"
+          : "0 4px 20px rgba(0,0,0,0.2)",
+        cursor: area.route ? "pointer" : "default",
       }}
     >
-      {/* Counter */}
-      <div style={{ color: theme.accent, fontSize: "11px", fontWeight: "700", letterSpacing: "0.15em", alignSelf: "flex-end", marginBottom: "4px" }}>
-        {dominio.id} - {dominio.total}
+      {/* Header */}
+      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "4px" }}>
+        <span style={{ fontSize: "12px", fontWeight: 700, color: GREEN_THEME.accent, opacity: 0.8 }}>
+          {area.id}
+        </span>
       </div>
 
       {/* Title */}
-      <div style={{ color: "#fff", fontSize: "19px", fontWeight: "700", letterSpacing: "-0.01em", margin: "0 0 2px 0" }}>
-        {dominio.titulo}
-      </div>
+      <h3 style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: 700 }}>
+        {area.titulo}
+      </h3>
 
-      {/* Subtitle */}
-      <div style={{ color: `${theme.accent}aa`, fontSize: "12.5px", fontStyle: "italic", fontWeight: "400", marginBottom: "6px" }}>
-        {dominio.subtitulo}
+      <div style={{ fontSize: "13px", color: GREEN_THEME.accent, marginBottom: "12px", opacity: 0.9 }}>
+        {area.subtitulo}
       </div>
 
       {/* Description */}
-      <div style={{ color: "rgba(255, 255, 255, 0.85)", fontSize: "13.5px", lineHeight: "1.6", fontWeight: "400" }}>
-        {dominio.descripcion}
-      </div>
+      <p style={{ fontSize: "14px", lineHeight: 1.5, margin: "0 0 16px", color: "#e9d5ff" }}>
+        {area.descripcion}
+      </p>
     </div>
   );
 }
@@ -117,15 +140,6 @@ export default function Seccion4Dominios() {
     const t = setTimeout(() => setHeaderVisible(true), 50);
     return () => clearTimeout(t);
   }, []);
-
-  // --- GREEN THEME PALETTE ---
-  const GREEN_THEME = {
-    bg: "#1a2e23",           // Deep forest green background
-    navBg: "#0e1628",        // Top navy navbar
-    cardBg: "rgba(255, 255, 255, 0.03)",
-    border: "rgba(74, 222, 128, 0.25)", // Muted green borders
-    accent: "#4ade80",      // Bright emerald accent
-  };
 
   return (
     <div style={{ backgroundColor: GREEN_THEME.bg, minHeight: "100vh", color: "#fff", fontFamily: "'Segoe UI', system-ui, sans-serif", boxSizing: "border-box" }}>
@@ -185,7 +199,14 @@ export default function Seccion4Dominios() {
         </div>
 
         {/* Heading */}
-        <h1 style={{ fontSize: "44px", fontWeight: "800", margin: "0 0 16px", lineHeight: "1.05" }}>
+        <h1 style={{
+            fontSize: "clamp(30px, 4.5vw, 52px)",
+            fontWeight: 700,
+            margin: "0 0 20px",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.08,
+            color: "#ffffff",
+          }}>
           7 Dominios de Desempeño
         </h1>
 
@@ -194,10 +215,16 @@ export default function Seccion4Dominios() {
           Los dominios son áreas de enfoque interrelacionadas que trabajan como un sistema integrado de entrega. Se aplican de forma CONTINUA a lo largo de todo el ciclo de vida del proyecto.
         </p>
 
-        {/* Cards Grid: 7 Items */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+        {/* Cards Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {DOMINIOS.map((d, i) => (
-            <DominioCard key={d.titulo} dominio={d} index={i} theme={GREEN_THEME} />
+            <DominioCard key={d.titulo} area={d} index={i} />
           ))}
         </div>
       </div>

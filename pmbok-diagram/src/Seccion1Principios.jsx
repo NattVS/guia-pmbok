@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// --- COLOR PALETTE (Light Blue / Cyan Theme) ---
+const BLUE_ACCENT = "#38bdf8"; 
+const BG_PAGE = "#082f49";        
+const BG_CARD = "rgba(12, 74, 110, 0.4)"; 
+const BORDER_CARD = "rgba(56, 189, 248, 0.3)"; 
+const NAV_BG = "#0e1628";
+
 const PRINCIPIOS = [
   {
     id: "01",
@@ -15,14 +22,16 @@ const PRINCIPIOS = [
     id: "02",
     total: "06",
     titulo: "Enfocarse en el Valor",
+    route: "/principios/enfocarse-en-el-valor",
     subtitulo: "Focus on Value",
     descripcion:
-      "El valor es el indicador final de éxito del proyecto. Todo el trabajo debe orientarse a maximizar el retorno sobre la inversión, sea financiero o no financiero.",
+      "El valor es el indicador final de éxito del proyecto. Todo el trabajo debe orientarse a maximizar el retorno sobre la inversión.",
   },
   {
     id: "03",
     total: "06",
     titulo: "Calidad Integrada",
+    route: "/principios/calidad-integrada",
     subtitulo: "Embed Quality",
     descripcion:
       "La calidad no es un control al final: se integra en cada proceso y entregable desde el inicio del proyecto.",
@@ -31,30 +40,32 @@ const PRINCIPIOS = [
     id: "04",
     total: "06",
     titulo: "Liderazgo Responsable",
+    route: "/principios/liderazgo-responsable",
     subtitulo: "Be an Accountable Leader",
     descripcion:
-      "Los proyectos exigen un liderazgo efectivo y ético. El líder toma responsabilidad por los objetivos, decisiones y acciones del proyecto.",
+      "Los proyectos exigen un liderazgo efectivo y ético. El líder toma responsabilidad por los objetivos y acciones.",
   },
   {
     id: "05",
     total: "06",
     titulo: "Cultura de Sostenibilidad",
+    route: "/principios/cultura-de-sostenibilidad",
     subtitulo: "Integrate Sustainability",
     descripcion:
-      "Integrar la sostenibilidad en todas las áreas del proyecto: considerando personas, planeta, sociedad y valor económico (Triple Bottom Line).",
+      "Integrar la sostenibilidad en todas las áreas del proyecto: considerando personas, planeta y valor económico.",
   },
   {
     id: "06",
     total: "06",
     titulo: "Cultura Empoderada",
+    route: "/principios/cultura-empoderada",
     subtitulo: "Build an Empowered Culture",
     descripcion:
-      "El entorno del proyecto debe promover confianza mutua, claridad de roles y colaboración, generando efectos sinérgicos entre los miembros del equipo.",
+      "Promover confianza mutua, claridad de roles y colaboración, generando efectos sinérgicos en el equipo.",
   },
 ];
 
 function PrincipioCard({ principio, index }) {
-
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -66,81 +77,61 @@ function PrincipioCard({ principio, index }) {
 
   return (
     <div
-        onClick={() => {
-            if (principio.route) {
-            navigate(principio.route);
-            }
-        }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{
+      onClick={() => principio.route && navigate(principio.route)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
         cursor: principio.route ? "pointer" : "default",
-        background: hovered
-          ? "rgba(255,255,255,0.07)"
-          : "rgba(255,255,255,0.04)",
-        border: hovered
-          ? "1.5px solid rgba(100,140,220,0.55)"
-          : "1.5px solid rgba(100,140,220,0.22)",
+        background: hovered ? "rgba(12, 74, 110, 0.6)" : BG_CARD,
+        border: `1.5px solid ${hovered ? BLUE_ACCENT : BORDER_CARD}`,
         borderRadius: "14px",
         padding: "24px 22px 22px",
         display: "flex",
         flexDirection: "column",
         gap: "6px",
-        transition:
-          "opacity 0.45s ease, transform 0.45s ease, background 0.2s, border-color 0.2s, box-shadow 0.2s",
+        transition: "all 0.4s ease",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(18px)",
-        boxShadow: hovered
-          ? "0 4px 28px rgba(60, 100, 200, 0.18)"
-          : "0 2px 12px rgba(0,0,0,0.18)",
+        boxShadow: hovered 
+          ? `0 10px 30px rgba(56, 189, 248, 0.15)` 
+          : "0 4px 12px rgba(0,0,0,0.2)",
       }}
     >
-      {/* Counter */}
       <div
         style={{
-          color: "rgba(130,160,230,0.7)",
+          color: BLUE_ACCENT,
           fontSize: "12px",
-          fontWeight: 500,
-          letterSpacing: "0.12em",
+          fontWeight: 700,
+          letterSpacing: "0.1em",
           alignSelf: "flex-end",
-          marginBottom: "4px",
+          opacity: 0.8,
         }}
       >
         {principio.id} - {principio.total}
       </div>
 
-      {/* Title */}
-      <div
-        style={{
-          color: "#ffffff",
-          fontSize: "18px",
-          fontWeight: 700,
-          lineHeight: 1.25,
-          letterSpacing: "-0.01em",
-        }}
-      >
+      <div style={{ color: "#ffffff", fontSize: "19px", fontWeight: 700, lineHeight: 1.2 }}>
         {principio.titulo}
       </div>
 
-      {/* Subtitle */}
       <div
         style={{
-          color: "rgba(160,185,230,0.65)",
+          color: BLUE_ACCENT,
           fontSize: "13px",
-          fontWeight: 400,
+          fontWeight: 500,
           fontStyle: "italic",
-          marginBottom: "6px",
+          marginBottom: "8px",
+          opacity: 0.9
         }}
       >
         {principio.subtitulo}
       </div>
 
-      {/* Description */}
       <div
         style={{
-          color: "rgba(210,220,240,0.82)",
+          color: "#e0f2fe",
           fontSize: "13.5px",
-          lineHeight: 1.65,
+          lineHeight: 1.6,
           fontWeight: 400,
         }}
       >
@@ -163,10 +154,9 @@ export default function Seccion1Principios() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#0e1628",
+        background: BG_PAGE,
         color: "#fff",
         fontFamily: "'Segoe UI', system-ui, sans-serif",
-        boxSizing: "border-box",
       }}
     >
       {/* ── TOP NAV BAR ── */}
@@ -176,41 +166,21 @@ export default function Seccion1Principios() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "14px 32px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-          background: "#0e1628",
+          background: NAV_BG,
           position: "sticky",
           top: 0,
           zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
         }}
       >
-        {/* PMBOK Badge */}
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.5)",
-            borderRadius: "6px",
-            padding: "7px 14px",
-            fontSize: "12px",
-            fontWeight: 700,
-          }}
-        >
-          PMBOK® Guide
-          <div
-            style={{ fontSize: "10px", fontWeight: 400, opacity: 0.6, marginTop: "1px" }}
-          >
-            Octava Edición
-          </div>
+        <div style={{ border: "1px solid rgba(255,255,255,0.4)", borderRadius: "6px", padding: "7px 14px" }}>
+          <b style={{ fontSize: "12px" }}>PMBOK® Guide</b>
+          <div style={{ fontSize: "10px", opacity: 0.6 }}>Octava Edición</div>
         </div>
 
-        {/* Title */}
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "18px", fontWeight: 700, letterSpacing: "-0.01em" }}>
-            El ADN de la gestión de proyectos de valor
-          </div>
-          <div
-            style={{ fontSize: "11px", opacity: 0.5, marginTop: "2px", letterSpacing: "0.07em" }}
-          >
-            PMBOK 8 &nbsp;–&nbsp; PMI 2025 &nbsp;–&nbsp; GUIA INTERACTIVA
-          </div>
+          <div style={{ fontSize: "18px", fontWeight: 700 }}>El ADN de la gestión de proyectos de valor</div>
+          <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>PMBOK 8 – PMI 2025</div>
         </div>
 
         {/* Back button */}
@@ -248,84 +218,66 @@ export default function Seccion1Principios() {
       </div>
 
       {/* ── PAGE CONTENT ── */}
-      <div style={{ padding: "32px 48px 48px", maxWidth: "1160px", margin: "0 auto" }}>
+      <div style={{ padding: "40px 48px", maxWidth: "1160px", margin: "0 auto" }}>
+        
         {/* Breadcrumb */}
-        <div
-          style={{
-            fontSize: "13px",
-            color: "rgba(180,200,240,0.55)",
-            marginBottom: "20px",
-            opacity: headerVisible ? 1 : 0,
-            transition: "opacity 0.4s ease",
-          }}
-        >
-            <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-            Inicio
-            </span>
-          <span style={{ margin: "0 8px", opacity: 0.4 }}>/</span>
-          <span style={{ color: "rgba(200,215,255,0.85)", fontWeight: 500 }}>
-            Sección 1
-          </span>
+        <div style={{ 
+          fontSize: "13px", 
+          color: BLUE_ACCENT, 
+          marginBottom: "20px", 
+          opacity: headerVisible ? 0.8 : 0, 
+          transition: "opacity 0.4s" 
+        }}>
+          <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>Inicio</span>
+          <span style={{ margin: "0 8px", opacity: 0.4, color: "#fff" }}>/</span>
+          <span style={{ color: "#fff" }}>Sección 1</span>
         </div>
 
-        {/* Section label */}
-        <div
-          style={{
-            color: "#5a8aff",
-            fontSize: "14px",
-            fontWeight: 600,
-            letterSpacing: "0.03em",
-            marginBottom: "8px",
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(10px)",
-            transition: "opacity 0.4s ease, transform 0.4s ease",
-          }}
-        >
+        <div style={{
+          color: BLUE_ACCENT,
+          fontSize: "14px",
+          fontWeight: 700,
+          letterSpacing: "0.1em",
+          marginBottom: "10px",
+          textTransform: "uppercase",
+          opacity: headerVisible ? 1 : 0,
+          transform: headerVisible ? "translateY(0)" : "translateY(10px)",
+          transition: "all 0.4s ease"
+        }}>
           Sección 1
         </div>
 
-        {/* Main heading */}
-        <h1
-          style={{
-            fontSize: "clamp(28px, 4vw, 48px)",
-            fontWeight: 700,
-            margin: "0 0 16px",
-            letterSpacing: "-0.02em",
-            lineHeight: 1.1,
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(14px)",
-            transition: "opacity 0.45s ease 0.06s, transform 0.45s ease 0.06s",
-          }}
-        >
-          6 Principios&nbsp; de Gestión de Proyectos
+        <h1 style={{
+                  fontSize: "clamp(28px, 4vw, 48px)",
+                  fontWeight: 700,
+                  margin: "0 0 16px",
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
+                  transition: "opacity 0.45s ease 0.06s, transform 0.45s ease 0.06s",
+                }}>
+          6 Principios de Gestión
         </h1>
 
-        {/* Description paragraph */}
-        <p
-          style={{
-            fontSize: "15px",
-            color: "rgba(210,225,255,0.75)",
-            lineHeight: 1.7,
-            maxWidth: "780px",
-            margin: "0 0 40px",
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(10px)",
-            transition: "opacity 0.45s ease 0.12s, transform 0.45s ease 0.12s",
-          }}
-        >
-          Esta edición sintetiza los 12 principios previos en 6 principios fundamentales que
-          guían el comportamiento del equipo hacia la entrega de resultados. No son reglas
-          prescriptivas; son una mentalidad que orienta decisiones y acciones.
+        <p style={{
+          fontSize: "16px",
+          color: "#bae6fd",
+          lineHeight: 1.8,
+          maxWidth: "800px",
+          margin: "0 0 50px",
+          opacity: headerVisible ? 0.9 : 0,
+          transform: headerVisible ? "translateY(0)" : "translateY(10px)",
+          transition: "all 0.5s ease 0.2s"
+        }}>
+          Esta edición sintetiza los 12 principios previos en 6 principios fundamentales. No son reglas prescriptivas; 
+          son una mentalidad que orienta decisiones y acciones hacia la entrega de valor real.
         </p>
 
-        {/* Cards grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "20px",
-          }}
-        >
+        {/* Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "24px",
+        }}>
           {PRINCIPIOS.map((p, i) => (
             <PrincipioCard key={p.id} principio={p} index={i} />
           ))}

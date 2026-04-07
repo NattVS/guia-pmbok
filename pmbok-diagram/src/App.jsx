@@ -163,7 +163,7 @@ export default function PMBOKDiagram() {
 
         {/* Center Wheel */}
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "550px" }}>
-          <div style={{ textAlign: "center", fontSize: "14px", opacity: 0.8 }}>Estructura del Modelo de Gestión de Proyectos</div>
+          {/*<div style={{ textAlign: "center", fontSize: "14px", opacity: 0.8 }}>Estructura del Modelo de Gestión de Proyectos</div>*/}
           <svg viewBox="0 0 600 600" width="100%" style={{ overflow: "visible" }}>
             
             {/* 1. Outer Phase Ring (5) */}
