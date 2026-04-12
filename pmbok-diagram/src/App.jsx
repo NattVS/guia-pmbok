@@ -13,22 +13,22 @@ const GREEN_CARD = "#102a1a";
 
 // --- Info fases - dominios - principios ---
 const PHASES = [
-  { label: "INICIO" },
-  { label: "PLANEACIÓN" },
-  { label: "EJECUCIÓN" },
-  { label: "MONITOREO Y\nCONTROL" },
-  { label: "CIERRE" },
+  { label: "INICIO (2)" },
+  { label: "PLANEACIÓN (19)" },
+  { label: "EJECUCIÓN (8)" },
+  { label: "MONITOREO Y\nCONTROL (10)" },
+  { label: "CIERRE (1)" },
 ];
 
 const DOMAINS = [
-  "Gobernanza", "Alcance", "Cronograma", "Finanzas",
-  "Interesados", "Recursos", "Riesgos", 
+  "Gobernanza (9)", "Alcance (6)", "Cronograma (3)", "Finanzas (4)",
+  "Interesados (7)", "Recursos (5)", "Riesgos (6)", 
 ];
 
 const PRINCIPLES = [
   "Visión\nHolística", "Sostenibilidad", "Liderazgo\nResponsable", 
   "Enfoque\nConstante\nen el Valor", "Colaboración\nEfectiva", 
-  "Gestión del\nCambio", "Adaptabilidad", "Calidad"
+  "Gestión del\nCambio"
 ];
 
 const CARD_DATA = [
@@ -210,7 +210,7 @@ export default function PMBOKDiagram() {
               <g key={i}>
                 <path
                   d={describeSlice(CX, CY, R_MID, R_MID_IN, start + 0.5, end - 0.5)}
-                  fill={i % 2 === 0 ? NAVY_MID : NAVY_LIGHT}
+                  fill={NAVY_MID}
                 />
                 <text
                   x={tPos.x}
@@ -227,26 +227,51 @@ export default function PMBOKDiagram() {
             );
           })}
 
-            {/* Principios*/}
             {PRINCIPLES.map((pr, i) => {
-              const start = i * 45, end = (i + 1) * 45;
-              const mid = start + 22.5;
+              const angleStep = 360 / PRINCIPLES.length;   // dynamic
+              const start = i * angleStep;
+              const end = (i + 1) * angleStep;
+              const mid = start + angleStep / 2;
+
               const tPos = polarToXY(mid, (R_INNER + R_CENTER) / 2, CX, CY);
               const rot = readableRotation(mid);
-              const fills = ["#d4e9d4", "#c1e1c1", "#e0f2d1", "#d3edba", "#c9e7b1", "#d8f0da", "#cfe9cc", "#dcf2e1"];
+
+              const fills = [
+                "#c9e7b1", "#c9e7b1", "#c9e7b1", "#c9e7b1",
+                "#c9e7b1", "#c9e7b1", "#c9e7b1", "#c9e7b1"
+              ];
+
               const lines = pr.split('\n');
 
               return (
                 <g key={i}>
-                  <path d={describeSlice(CX, CY, R_INNER, R_CENTER, start + 0.5, end - 0.5)} fill={fills[i % fills.length]} />
-                  <text 
-                    x={tPos.x} y={tPos.y} 
-                    fill="#1a3a2a" fontSize="8.5" fontWeight="600" 
-                    textAnchor="middle" dominantBaseline="middle" 
+                  <path
+                    d={describeSlice(
+                      CX,
+                      CY,
+                      R_INNER,
+                      R_CENTER,
+                      start + 0.5,
+                      end - 0.5
+                    )}
+                    fill={fills[i % fills.length]}
+                  />
+                  <text
+                    x={tPos.x}
+                    y={tPos.y}
+                    fill="#1a3a2a"
+                    fontSize="8.5"
+                    fontWeight="600"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
                     transform={`rotate(${rot}, ${tPos.x}, ${tPos.y})`}
                   >
                     {lines.map((line, j) => (
-                      <tspan key={j} x={tPos.x} dy={j === 0 ? `-${(lines.length - 1) * 5}px` : "10px"}>
+                      <tspan
+                        key={j}
+                        x={tPos.x}
+                        dy={j === 0 ? `-${(lines.length - 1) * 5}px` : "10px"}
+                      >
                         {line}
                       </tspan>
                     ))}
