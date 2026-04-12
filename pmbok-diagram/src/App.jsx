@@ -11,7 +11,7 @@ const GOLD_CARD = "#2a2410";
 const PURPLE_CARD = "#241a3a";
 const GREEN_CARD = "#102a1a";
 
-// --- Data Structures ---
+// --- Info fases - dominios - principios ---
 const PHASES = [
   { label: "INICIO" },
   { label: "PLANEACIÓN" },
@@ -22,7 +22,7 @@ const PHASES = [
 
 const DOMAINS = [
   "Gobernanza", "Alcance", "Cronograma", "Finanzas",
-  "Interesados", "Recursos", "Riesgos", "Gestión del Cambio"
+  "Interesados", "Recursos", "Riesgos", 
 ];
 
 const PRINCIPLES = [
@@ -74,18 +74,25 @@ export default function PMBOKDiagram() {
   return (
     <div style={{ minHeight: "100vh", background: "#0a0f1d", color: WHITE, padding: "20px", boxSizing: "border-box", fontFamily: "sans-serif" }}>
       
-      {/* Header Section - Responsive Flex */}
-      <div style={{ 
-        display: "flex", 
-        flexWrap: "wrap",
-        gap: "20px",
-        justifyContent: "space-between", 
-        marginBottom: "40px", 
-        alignItems: "center" 
+      {/* Header Section */}
+        <div style={{ 
+          display: "flex", 
+          flexWrap: "wrap",
+          gap: "20px",
+          justifyContent: "space-between", 
+          marginBottom: "40px", 
+          alignItems: "center" 
       }}>
-        <div style={{ border: "1px solid rgba(255,255,255,0.3)", padding: "10px 20px", borderRadius: "4px" }}>
-          <div style={{ fontWeight: 700 }}>PMBOK® Guide</div>
-          <div style={{ fontSize: "12px", opacity: 0.6 }}>Octava Edición</div>
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src="/src/assets/Logo-Nuevo-Grande.png" 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+          <div style={{ borderLeft: "1px solid rgba(255,255,255,0.3)", padding: "5px 20px", borderRadius: "0 4px 4px 0" }}>
+            <div style={{ fontWeight: 700 }}>PMBOK® Guide</div>
+            <div style={{ fontSize: "12px", opacity: 0.6 }}>Octava Edición</div>
+          </div>
         </div>
 
         <div style={{ textAlign: "center", flex: "1 1 300px" }}>
@@ -93,28 +100,28 @@ export default function PMBOKDiagram() {
             El ADN de la gestión de proyectos de valor
           </h1>
           <div style={{ fontSize: "10px", opacity: 0.5, letterSpacing: "2px", marginTop: "8px" }}>
-            PMBOK 8 – PMI 2025 – GUÍA INTERACTIVA
+            PMBOK 8 - PMI 2025 - GUÍA INTERACTIVA
           </div>
         </div>
 
         <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
           {[{ n: 6, l: "Principios" }, { n: 7, l: "Dominios" }, { n: 5, l: "Áreas" }, { n: 40, l: "Procesos" }].map(s => (
             <div key={s.l} style={{ textAlign: "center", minWidth: "60px" }}>
-              <div style={{ color: GOLD, fontSize: "20px", fontWeight: 700 }}>{s.n}</div>
+              <div style={{ color: "#D4AF37", fontSize: "20px", fontWeight: 700 }}>{s.n}</div>
               <div style={{ fontSize: "9px", opacity: 0.7, textTransform: "uppercase" }}>{s.l}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Main Diagram Area - Responsive Aspect Ratio */}
+      {/* Main Diagram Area  */}
       <div style={{ 
         position: "relative", 
         width: "100%", 
         maxWidth: "1000px", 
-        aspectRatio: "10 / 7", // Keeps coordinates stable
+        aspectRatio: "10 / 7", 
         margin: "0 auto",
-        fontSize: "min(1.2vw, 14px)" // Scales base text for cards
+        fontSize: "min(1.2vw, 14px)" 
       }}>
         
         {/* Floating Cards */}
@@ -136,7 +143,7 @@ export default function PMBOKDiagram() {
               border: `1px solid ${card.border}`,
               padding: "1.2%",
               borderRadius: "8px",
-              width: "16%", // Scalable width
+              width: "16%", 
               minWidth: "120px",
               transition: "all 0.3s ease",
               zIndex: 20,
@@ -152,13 +159,13 @@ export default function PMBOKDiagram() {
           </div>
         ))}
 
-        {/* Center Wheel Container - Responsive Width */}
+        {/* Center Wheel Container  */}
         <div style={{ 
           position: "absolute", 
           top: "50%", 
           left: "50%", 
           transform: "translate(-50%, -50%)", 
-          width: "55%" // Scaled to fit parent 
+          width: "55%" 
         }}>
           <svg viewBox="0 0 600 600" width="100%" style={{ overflow: "visible" }}>
             
@@ -189,29 +196,38 @@ export default function PMBOKDiagram() {
               );
             })}
 
-            {/* 2. Middle Domain Ring */}
+            {/* Dominios (medio) */}
             {DOMAINS.map((d, i) => {
-              const start = i * 45, end = (i + 1) * 45;
-              const mid = start + 22.5;
-              const tPos = polarToXY(mid, (R_MID + R_MID_IN) / 2, CX, CY);
-              const rot = readableRotation(mid);
+            const angleStep = 360 / DOMAINS.length; 
+            const start = i * angleStep;
+            const end = (i + 1) * angleStep;
+            const mid = start + angleStep / 2;
 
-              return (
-                <g key={i}>
-                  <path d={describeSlice(CX, CY, R_MID, R_MID_IN, start + 0.5, end - 0.5)} fill={i % 2 === 0 ? NAVY_MID : NAVY_LIGHT} />
-                  <text 
-                    x={tPos.x} y={tPos.y} 
-                    fill={WHITE} fontSize="10" 
-                    textAnchor="middle" dominantBaseline="middle" 
-                    transform={`rotate(${rot}, ${tPos.x}, ${tPos.y})`}
-                  >
-                    {d}
-                  </text>
-                </g>
-              );
-            })}
+            const tPos = polarToXY(mid, (R_MID + R_MID_IN) / 2, CX, CY);
+            const rot = readableRotation(mid);
 
-            {/* 3. Inner Principle Ring */}
+            return (
+              <g key={i}>
+                <path
+                  d={describeSlice(CX, CY, R_MID, R_MID_IN, start + 0.5, end - 0.5)}
+                  fill={i % 2 === 0 ? NAVY_MID : NAVY_LIGHT}
+                />
+                <text
+                  x={tPos.x}
+                  y={tPos.y}
+                  fill={WHITE}
+                  fontSize="10"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  transform={`rotate(${rot}, ${tPos.x}, ${tPos.y})`}
+                >
+                  {d}
+                </text>
+              </g>
+            );
+          })}
+
+            {/* Principios*/}
             {PRINCIPLES.map((pr, i) => {
               const start = i * 45, end = (i + 1) * 45;
               const mid = start + 22.5;
@@ -239,7 +255,7 @@ export default function PMBOKDiagram() {
               );
             })}
 
-            {/* Center Core */}
+            {/* Centro */}
             <circle cx={CX} cy={CY} r={R_CENTER - 5} fill={WHITE} />
             <text x={CX} y={CY} textAnchor="middle" dominantBaseline="middle" fill="#0a0f1d" fontSize="13" fontWeight="800">
               <tspan x={CX} dy="-1.2em">Enfoque</tspan>
