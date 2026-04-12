@@ -84,11 +84,7 @@ export default function PMBOKDiagram() {
           alignItems: "center" 
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-          <img 
-            src="/src/assets/Logo-Nuevo-Grande.png" 
-            alt="Logo" 
-            style={{ height: "45px", width: "auto" }} 
-          />
+
           <div style={{ borderLeft: "1px solid rgba(255,255,255,0.3)", padding: "5px 20px", borderRadius: "0 4px 4px 0" }}>
             <div style={{ fontWeight: 700 }}>PMBOK® Guide</div>
             <div style={{ fontSize: "12px", opacity: 0.6 }}>Octava Edición</div>
