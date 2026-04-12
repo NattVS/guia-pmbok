@@ -216,7 +216,7 @@ export default function PMBOKDiagram() {
                   x={tPos.x}
                   y={tPos.y}
                   fill={WHITE}
-                  fontSize="10"
+                  fontSize="12"
                   textAnchor="middle"
                   dominantBaseline="middle"
                   transform={`rotate(${rot}, ${tPos.x}, ${tPos.y})`}
@@ -260,7 +260,7 @@ export default function PMBOKDiagram() {
                     x={tPos.x}
                     y={tPos.y}
                     fill="#1a3a2a"
-                    fontSize="8.5"
+                    fontSize="9"
                     fontWeight="600"
                     textAnchor="middle"
                     dominantBaseline="middle"
