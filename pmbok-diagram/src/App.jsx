@@ -27,9 +27,9 @@ const DOMAINS = [
 ];
 
 const PRINCIPLES = [
-  "Visión\nHolística", "Sostenibilidad", "Liderazgo\nResponsable", 
+  "Sostenibilidad", "Liderazgo\nResponsable", 
   "Enfoque\nConstante\nen el Valor", "Colaboración\nEfectiva", 
-  "Gestión del\nCambio"
+  "Gestión del\nCambio", "Visión\nHolística"
 ];
 
 const CARD_DATA = [
