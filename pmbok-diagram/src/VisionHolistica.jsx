@@ -77,7 +77,7 @@ export default function DetalleVisionHolistica() {
             {/* LEFT: Logo + PMBOK */}
             <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
               <img 
-                src={logo} // or "/Logo-Nuevo-Grande.png"
+                src={logo}
                 alt="Logo" 
                 style={{ height: "45px", width: "auto" }} 
               />
@@ -101,7 +101,7 @@ export default function DetalleVisionHolistica() {
                 left: "50%",
                 transform: "translateX(-50%)",
                 textAlign: "center",
-                pointerEvents: "none" // prevents blocking clicks
+                pointerEvents: "none"
               }}>
                 <div style={{ fontSize: "18px", fontWeight: 700 }}>
                   El ADN de la gestión de proyectos de valor

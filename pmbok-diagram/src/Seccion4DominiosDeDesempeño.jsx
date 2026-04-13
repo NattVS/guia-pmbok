@@ -64,10 +64,10 @@ const DOMINIOS = [
 
   // --- GREEN THEME PALETTE ---
   const GREEN_THEME = {
-    bg: "#1a2e23",           // Deep forest green background
-    navBg: "#0e1628",        // Top navy navbar
+    bg: "#1a2e23",        
+    navBg: "#0e1628",       
     cardBg: "rgba(255, 255, 255, 0.03)",
-    border: "rgba(74, 222, 128, 0.25)", // Muted green borders
+    border: "rgba(74, 222, 128, 0.25)", 
     accent: "#4ade80",      
     NAV_BG: "#0e1628",
   };

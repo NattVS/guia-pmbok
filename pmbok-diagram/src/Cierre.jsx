@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 // --- ESTRUCTURA DE LA INFO PARA "CIERRE" ---
 const CIERRE_DATA = {
@@ -59,18 +60,57 @@ export default function DetalleCierre() {
   return (
     <div style={{ minHeight: "100vh", background: BG_PAGE, color: "#fff", fontFamily: "system-ui, sans-serif" }}>
       
-      {/* ── TOP NAV BAR ── */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 32px", background: NAV_BG, position: "sticky", top: 0, zIndex: 100 }}>
-        <div style={{ border: "1px solid rgba(255,255,255,0.4)", padding: "6px 12px", borderRadius: "4px", fontSize: "12px" }}>
-          <b>PMBOK® Guide</b>
-          <div style={{ fontSize: "10px", opacity: 0.6 }}>Octava Edición</div>
-        </div>
-
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "17px", fontWeight: 700 }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: "11px", opacity: 0.5, marginTop: "2px", letterSpacing: "0.07em" }}>PMBOK 8 – PMI 2025 – GUIA INTERACTIVA</div>
-        </div>
-
+          {/* ── TOP NAV BAR ── */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "14px 32px",
+              background: NAV_BG,
+              position: "sticky",
+              top: 0,
+              zIndex: 100,
+              borderBottom: "1px solid rgba(255,255,255,0.05)"
+            }}
+          >
+            {/* LEFT: Logo + PMBOK */}
+            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+              <img 
+                src={logo}
+                alt="Logo" 
+                style={{ height: "45px", width: "auto" }} 
+              />
+    
+              <div style={{ 
+                borderLeft: "1px solid rgba(255,255,255,0.3)", 
+                paddingLeft: "15px"
+              }}>
+                <div style={{ fontWeight: 700, fontSize: "12px" }}>
+                  PMBOK® Guide
+                </div>
+                <div style={{ fontSize: "10px", opacity: 0.6 }}>
+                  Octava Edición
+                </div>
+              </div>
+            </div>
+    
+            {/* CENTER: Title */}
+              <div style={{ 
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                textAlign: "center",
+                pointerEvents: "none" 
+              }}>
+                <div style={{ fontSize: "18px", fontWeight: 700 }}>
+                  El ADN de la gestión de proyectos de valor
+                </div>
+                <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+                  PMBOK 8 – PMI 2025
+                </div>
+              </div>
+    
         {/* Back button */}
               <button
                 onClick={() => navigate("/areas-de-enfoque")}
