@@ -27,9 +27,9 @@ const DOMAINS = [
 ];
 
 const PRINCIPLES = [
-  "Sostenibilidad", "Liderazgo\nResponsable", 
-  "Enfoque\nConstante\nen el Valor", "Colaboración\nEfectiva", 
-  "Gestión del\nCambio", "Visión\nHolística"
+  "Enfocarse \nen el valor", "Integrar calidad\n en procesos \ny entregables", 
+  "Ser un líder\nresponsable", "Integrar la\nsostenibilidad", 
+  "Cosntruir \nuna cultura \nempoderada", "Adoptar una\nVisión holisitica"
 ];
 
 const CARD_DATA = [
@@ -261,7 +261,7 @@ export default function PMBOKDiagram() {
                     x={tPos.x}
                     y={tPos.y}
                     fill="#1a3a2a"
-                    fontSize="9"
+                    fontSize="10"
                     fontWeight="600"
                     textAnchor="middle"
                     dominantBaseline="middle"
@@ -282,12 +282,21 @@ export default function PMBOKDiagram() {
             })}
 
             {/* Centro */}
-            <circle cx={CX} cy={CY} r={R_CENTER - 5} fill={WHITE} />
-            <text x={CX} y={CY} textAnchor="middle" dominantBaseline="middle" fill="#0a0f1d" fontSize="13" fontWeight="800">
-              <tspan x={CX} dy="-1.2em">Enfoque</tspan>
-              <tspan x={CX} dy="1.2em">Proactivo</tspan>
-              <tspan x={CX} dy="1.2em">Orientado</tspan>
-              <tspan x={CX} dy="1.2em">al Valor</tspan>
+            <circle cx={CX} cy={CY} r={R_CENTER - 6} fill={WHITE} />
+            <text
+              x={CX}
+              y={CY}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="#0a0f1d"
+              fontSize="10"
+              fontWeight="800"
+            >
+              <tspan x={CX} y={CY - 24}>Mentalidad de</tspan>
+              <tspan x={CX} y={CY - 12}>Gestión de Proyectos:</tspan>
+              <tspan x={CX} y={CY}>Proactiva,</tspan>
+              <tspan x={CX} y={CY + 12}>Responsable y</tspan>
+              <tspan x={CX} y={CY + 24}>orientada al valor</tspan>
             </text>
           </svg>
         </div>

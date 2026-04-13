@@ -12,7 +12,7 @@ const PRINCIPIOS = [
   {
     id: "01",
     total: "06",
-    titulo: "Visión Holística",
+    titulo: "Adoptar una visión holisitica",
     route: "/principios/vision-holistica",
     subtitulo: "Adopt a Holistic View",
     descripcion:
@@ -30,7 +30,7 @@ const PRINCIPIOS = [
   {
     id: "03",
     total: "06",
-    titulo: "Calidad Integrada",
+    titulo: "Integrar la calidad en los procesos y entregables",
     route: "/principios/calidad-integrada",
     subtitulo: "Embed Quality",
     descripcion:
@@ -39,7 +39,7 @@ const PRINCIPIOS = [
   {
     id: "04",
     total: "06",
-    titulo: "Liderazgo Responsable",
+    titulo: "Ser un líder responsable",
     route: "/principios/liderazgo-responsable",
     subtitulo: "Be an Accountable Leader",
     descripcion:
@@ -48,7 +48,7 @@ const PRINCIPIOS = [
   {
     id: "05",
     total: "06",
-    titulo: "Cultura de Sostenibilidad",
+    titulo: "Integrar la sostenibilidad en todas las áreas del proyecto",
     route: "/principios/cultura-de-sostenibilidad",
     subtitulo: "Integrate Sustainability",
     descripcion:
@@ -57,7 +57,7 @@ const PRINCIPIOS = [
   {
     id: "06",
     total: "06",
-    titulo: "Cultura Empoderada",
+    titulo: "Construir una cultura empoderada",
     route: "/principios/cultura-empoderada",
     subtitulo: "Build an Empowered Culture",
     descripcion:

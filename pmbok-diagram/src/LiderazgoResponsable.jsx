@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // --- Estructura de la info para Liderazgo Responsable (principio 4) ---
 const LIDERAZGO_DATA = {
   id: "04 - 06",
-  titulo: "Liderazgo Responsable",
+  titulo: "Ser un lider responsable",
   subtitulo: "Be an Accountable Leader",
   descripcion: "Los proyectos exigen un liderazgo efectivo y ético. El líder toma responsabilidad por los objetivos, decisiones y acciones del proyecto.",
   definicion: {

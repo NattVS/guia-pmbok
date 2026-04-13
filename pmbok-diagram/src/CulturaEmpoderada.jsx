@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // --- Estructura de la info para Cultura Empoderada (principio 6) ---
 const CULTURA_EMPODERADA_DATA = {
   id: "06 - 06",
-  titulo: "Cultura Empoderada",
+  titulo: "Construir una cultura empoderada",
   subtitulo: "Build an Empowered Culture",
   descripcion: "El entorno del proyecto debe promover confianza mutua, claridad de roles y colaboración, generando efectos sinérgicos entre los miembros del equipo.",
   definicion: {

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // --- Estructura de la info para Calidad Integrada (principio 3) ---
 const CALIDAD_DATA = {
   id: "03 - 06",
-  titulo: "Calidad Integrada",
+  titulo: "Integrar la Calidad en los procesos y entregables",
   subtitulo: "Embed Quality",
   descripcion: "La calidad no es un control al final: se integra en cada proceso y entregable desde el inicio del proyecto.",
   definicion: {

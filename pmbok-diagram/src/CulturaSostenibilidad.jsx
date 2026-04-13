@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// --- Estructura de la info para Cultura de Sostenibilidad (principio 5) ---
+// --- Estructura de la info para Integrar la sostenibilidad en todas las áreas del proyecto (principio 5) ---
 const CULTURA_SOSTENIBILIDAD_DATA = {
   id: "05 - 06",
-  titulo: "Cultura de Sostenibilidad",
+  titulo: "Integrar la sostenibilidad en todas las áreas del proyecto",
   subtitulo: "Integrate Sustainability",
   descripcion: "Integrar la sostenibilidad en todas las áreas del proyecto: considerando personas, planeta, sociedad y valor económico (Triple Bottom Line).",
   definicion: {

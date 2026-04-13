@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // --- Estructura de la info para Visión Holistica ---
 const VISION_DATA = {
   id: "01 - 06",
-  titulo: "Visión Holística",
+  titulo: "Adoptar una visión holisitica",
   subtitulo: "Adopt a Holistic View",
   descripcion: "Ver el proyecto como un sistema integrado considerando todas las interdependencias, desde el inicio hasta el cierre.",
   definicion: {
