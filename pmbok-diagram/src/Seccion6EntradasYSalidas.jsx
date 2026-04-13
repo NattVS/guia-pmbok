@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 const CICLOS = [
     {
@@ -142,40 +143,49 @@ export default function Seccion6EntradasYSalidas() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "14px 32px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
           background: NAV_BG,
           position: "sticky",
           top: 0,
           zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
         }}
       >
-        {/* PMBOK Badge */}
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.5)",
-            borderRadius: "6px",
-            padding: "7px 14px",
-            fontSize: "12px",
-            fontWeight: 700,
-            background: "transparent",
-            color: "#fff",
-          }}
-        >
-          PMBOK® Guide
-          <div style={{ fontSize: "10px", fontWeight: 400, opacity: 0.6, marginTop: "1px" }}>
-            Octava Edición
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
           </div>
         </div>
 
-        {/* Center title */}
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "17px", fontWeight: 700, letterSpacing: "-0.01em", color: "#fff" }}>
-            El ADN de la gestión de proyectos de valor
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
           </div>
-          <div style={{ fontSize: "11px", opacity: 0.5, marginTop: "2px", letterSpacing: "0.07em", color: "#fff" }}>
-            PMBOK 8 &nbsp;–&nbsp; PMI 2025 &nbsp;–&nbsp; GUIA INTERACTIVA
-          </div>
-        </div>
 
         {/* Back button */}
         <button
@@ -210,6 +220,7 @@ export default function Seccion6EntradasYSalidas() {
           Inicio
         </button>
       </div>
+
 
       {/* ── PAGE CONTENT ── */}
       <div

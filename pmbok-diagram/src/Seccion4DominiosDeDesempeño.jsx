@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 // --- Updated Data Structure for the 7 Dominios ---
 const DOMINIOS = [
@@ -67,7 +68,8 @@ const DOMINIOS = [
     navBg: "#0e1628",        // Top navy navbar
     cardBg: "rgba(255, 255, 255, 0.03)",
     border: "rgba(74, 222, 128, 0.25)", // Muted green borders
-    accent: "#4ade80",      // Bright emerald accent
+    accent: "#4ade80",      
+    NAV_BG: "#0e1628",
   };
 
 // --- Sub-component: Dominio Card ---
@@ -143,16 +145,58 @@ export default function Seccion4Dominios() {
 
   return (
     <div style={{ backgroundColor: GREEN_THEME.bg, minHeight: "100vh", color: "#fff", fontFamily: "'Segoe UI', system-ui, sans-serif", boxSizing: "border-box" }}>
-      {/* ── TOP NAV BAR (Retained Layout/Typography) ── */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 40px", borderBottom: "1px solid rgba(255,255,255,0.08)", background: GREEN_THEME.navBg, position: "sticky", top: 0, zIndex: 100 }}>
-        <div style={{ border: "1px solid rgba(255,255,255,0.5)", borderRadius: "4px", padding: "6px 12px", fontSize: "11px", fontWeight: "bold" }}>
-          PMBOK® Guide <br /> <span style={{fontWeight: "400", opacity: 0.6}}>Octava Edición</span>
+      {/* ── TOP NAV BAR ── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "14px 32px",
+          background: GREEN_THEME.NAV_BG,
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
+        }}
+      >
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
+          </div>
         </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "16px", fontWeight: "700", letterSpacing: "-0.01em" }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: "10px", opacity: 0.5, marginTop: "2px", letterSpacing: "0.1em", textTransform: "uppercase" }}>PMBOK 8 - PMI 2025 - GUIA INTERACTIVA</div>
-        </div>
-         {/* Back button */}
+
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
+          </div>
+
+        {/* Back button */}
         <button
           onClick={() => navigate("/")}
           style={{

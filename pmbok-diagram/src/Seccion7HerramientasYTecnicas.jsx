@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 // --- DATA: Herramientas y tecnicas ---
 const HERRAMIENTASYTEC = [
@@ -12,9 +13,9 @@ const HERRAMIENTASYTEC = [
 ];
 
 // --- COLOR PALETTE (Purple Theme) ---
-const PURPLE_ACCENT = "#c084fc"; // Light purple for bullets/labels
-const BG_PAGE = "#2e104e";       // Deep purple background
-const BG_CARD = "rgba(88, 28, 135, 0.4)"; // Translucent purple
+const PURPLE_ACCENT = "#c084fc";
+const BG_PAGE = "#2e104e";       
+const BG_CARD = "rgba(88, 28, 135, 0.4)"; 
 const BORDER_CARD = "rgba(168, 85, 247, 0.4)"; 
 const NAV_BG = "#0e1628";
 
@@ -172,16 +173,58 @@ export default function Seccion7HerramientasYTecnicas() {
 
   return (
     <div style={styles.container}>
-      {/* Top Navigation */}
-      <div style={styles.header}>
-        <div style={{ border: '1px solid #fff', padding: '6px 12px', fontSize: '12px', borderRadius: '4px' }}>
-          PMBOK® Guide <br /> <span style={{ opacity: 0.5 }}>Octava Edición</span>
+      {/* ── TOP NAV BAR ── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "14px 32px",
+          background: NAV_BG,
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
+        }}
+      >
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
+          </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontWeight: '600', fontSize: '18px' }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: '12px', opacity: 0.4, letterSpacing: '1.5px' }}>PMBOK 8 - PMI 2025 - GUIA INTERACTIVA</div>
-        </div>
- {/* Back button */}
+
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
+          </div>
+
+        {/* Back button */}
         <button
           onClick={() => navigate("/")}
           style={{
@@ -217,7 +260,7 @@ export default function Seccion7HerramientasYTecnicas() {
 
       {/* CONTENT */}
       <div style={{ padding: "40px 60px", maxWidth: "1200px", margin: "0 auto", opacity: visible ? 1 : 0, transition: "opacity 0.6s" }}>
-        <div style={{ fontSize: "14px", color: PURPLE_ACCENT, marginBottom: "8px", fontWeight: 600 }}>Sección 7</div>
+        <div style={styles.breadcrumb}>Inicio / <span style={{color: '#fff'}}>Sección 7</span></div>
         <h1 style={styles.title}>Herramientas y Técnicas</h1>
         <p style={{ fontSize: "18px", color: "#d8b4fe", maxWidth: "850px", lineHeight: 1.6, marginBottom: "50px" }}>
           El PMBOK 8, incluye 169 técnicas y 137 herramientas. Resumidas en el siguiente ejemplo:

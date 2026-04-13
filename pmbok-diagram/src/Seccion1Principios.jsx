@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 // --- COLOR PALETTE (Light Blue / Cyan Theme) ---
 const BLUE_ACCENT = "#38bdf8"; 
@@ -173,15 +174,42 @@ export default function Seccion1Principios() {
           borderBottom: "1px solid rgba(255,255,255,0.05)"
         }}
       >
-        <div style={{ border: "1px solid rgba(255,255,255,0.4)", borderRadius: "6px", padding: "7px 14px" }}>
-          <b style={{ fontSize: "12px" }}>PMBOK® Guide</b>
-          <div style={{ fontSize: "10px", opacity: 0.6 }}>Octava Edición</div>
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
+          </div>
         </div>
 
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "18px", fontWeight: 700 }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>PMBOK 8 – PMI 2025</div>
-        </div>
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
+          </div>
 
         {/* Back button */}
         <button

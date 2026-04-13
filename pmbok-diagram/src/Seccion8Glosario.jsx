@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 const Seccion8Glosario = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Seccion8Glosario = () => {
   const BG_NAV = "#0e1628";            
   const BORDER_COLOR = "rgba(74, 222, 128, 0.25)";
   const HEADER_BG = "rgba(74, 222, 128, 0.1)";
+  const NAV_BG = "#0e1628";
 
   const styles = {
     container: {
@@ -47,7 +49,7 @@ const Seccion8Glosario = () => {
     },
     contentArea: {
       maxWidth: '1200px',
-      margin: '0 auto',
+      margin: '40px auto 0 auto',
       padding: '0 40px'
     },
     titleSection: {
@@ -122,27 +124,91 @@ const Seccion8Glosario = () => {
 
   return (
     <div style={styles.container}>
-      {/* Top Navigation */}
-      <div style={styles.header}>
-        <div style={{ border: '1px solid #fff', padding: '6px 12px', fontSize: '12px', borderRadius: '4px' }}>
-          PMBOK® Guide <br /> <span style={{ opacity: 0.5 }}>Octava Edición</span>
+      {/* ── TOP NAV BAR ── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "14px 32px",
+          background: NAV_BG,
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
+        }}
+      >
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
+          </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontWeight: '600', fontSize: '18px' }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: '12px', opacity: 0.4, letterSpacing: '1.5px' }}>PMBOK 8 - PMI 2025 - GUIA INTERACTIVA</div>
-        </div>
+
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
+          </div>
+
+        {/* Back button */}
         <button
           onClick={() => navigate("/")}
-          style={styles.backButton}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "#3a4fc8",
+            border: "none",
+            borderRadius: "8px",
+            color: "#fff",
+            padding: "10px 20px",
+            fontSize: "14px",
+            fontWeight: 600,
+            cursor: "pointer",
+            letterSpacing: "0.01em",
+            transition: "background 0.18s",
+          }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "#4a5fd8")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "#3a4fc8")}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M10 3L5 8L10 13" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M10 3L5 8L10 13"
+              stroke="#fff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
           Inicio
         </button>
       </div>
+
 
       <div style={styles.contentArea}>
         {/* Title and Intro */}

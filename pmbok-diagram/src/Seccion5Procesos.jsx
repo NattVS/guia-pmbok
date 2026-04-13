@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/assets/Logo-Nuevo-Grande.png";
 
 // --- COLOR PALETTE (Light Blue / Cyan Theme) ---
 const BLUE_ACCENT = "#38bdf8"; 
@@ -96,7 +97,7 @@ const Seccion5Procesos = () => {
     },
     breadcrumb: {
       fontSize: '13px',
-      color: BLUE_ACCENT,
+      color: 'rgba(255,255,255,0.6)',
       marginBottom: '15px'
     },
     sectionLabel: {
@@ -157,17 +158,57 @@ const Seccion5Procesos = () => {
 
   return (
     <div style={styles.container}>
-      {/* Top Navigation */}
-      <div style={styles.header}>
-        <div style={{ border: '1px solid rgba(255,255,255,0.4)', padding: '7px 14px', borderRadius: '6px' }}>
-          <b style={{ fontSize: '12px' }}>PMBOK® Guide</b>
-          <div style={{ fontSize: '10px', opacity: 0.6 }}>Octava Edición</div>
+      {/* ── TOP NAV BAR ── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "14px 32px",
+          background: NAV_BG,
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          borderBottom: "1px solid rgba(255,255,255,0.05)"
+        }}
+      >
+        {/* LEFT: Logo + PMBOK */}
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <img 
+            src={logo} 
+            alt="Logo" 
+            style={{ height: "45px", width: "auto" }} 
+          />
+
+          <div style={{ 
+            borderLeft: "1px solid rgba(255,255,255,0.3)", 
+            paddingLeft: "15px"
+          }}>
+            <div style={{ fontWeight: 700, fontSize: "12px" }}>
+              PMBOK® Guide
+            </div>
+            <div style={{ fontSize: "10px", opacity: 0.6 }}>
+              Octava Edición
+            </div>
+          </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontWeight: '700', fontSize: '18px' }}>El ADN de la gestión de proyectos de valor</div>
-          <div style={{ fontSize: '11px', opacity: 0.5, letterSpacing: '1px' }}>PMBOK 8 – PMI 2025</div>
-        </div>
-        
+
+        {/* CENTER: Title */}
+          <div style={{ 
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: "center",
+            pointerEvents: "none" 
+          }}>
+            <div style={{ fontSize: "18px", fontWeight: 700 }}>
+              El ADN de la gestión de proyectos de valor
+            </div>
+            <div style={{ fontSize: "11px", opacity: 0.5, letterSpacing: "0.07em" }}>
+              PMBOK 8 – PMI 2025
+            </div>
+          </div>
+
         {/* Back button */}
         <button
           onClick={() => navigate("/")}
@@ -202,13 +243,12 @@ const Seccion5Procesos = () => {
         </button>
       </div>
 
+
       <div style={styles.contentArea}>
         {/* Title and Intro */}
         <div style={{ marginBottom: '40px' }}>
           <div style={styles.breadcrumb}>
-            <span style={{ cursor: 'pointer' }} onClick={() => navigate("/")}>Inicio</span>
-            <span style={{ margin: '0 8px', opacity: 0.5, color: '#fff' }}>/</span>
-            <span style={{ color: '#fff' }}>Sección 5</span>
+          <div style={styles.breadcrumb}>Inicio / <span style={{color: '#fff'}}>Sección 8</span></div>
           </div>
           <div style={styles.sectionLabel}>Sección 5</div>
           <h1 style={styles.title}>Procesos</h1>
