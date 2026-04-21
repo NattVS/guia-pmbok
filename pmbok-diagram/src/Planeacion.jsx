@@ -19,14 +19,25 @@ const PLANEACION_DATA = {
   procesos: {
     subtitulo: "Procesos Principales",
     items: [
-      "Integrar y alinear los planes del proyecto",
-      "Planear la estrategia de compras/adquisiciones",
-      "Planificación del alcance del proyecto",
-      "Planificar la Gestión del cronograma",
-      "Planificación de la gestión financiera",
-      "Planificar la gestión de recursos",
-      "Planificar la gestión del riesgo",
-      "Planificar la participación de los interesados"
+      "Integrar y Alinear los Planes del Proyecto",
+      "Planificar la Estrategia de Adquisición de Recursos",
+      "Planificar la Gestión del Alcance",
+      "Obtener y Analizar Requisitos",
+      "Definir el Alcance",
+      "Desarrollar la Estructura del Alcance (EDT)",
+      "Planificar la Gestión del Cronograma",
+      "Desarrollar el Cronograma",
+      "Planificar la Gestión Financiera",
+      "Estimar Costos",
+      "Determinar el Presupuesto",
+      "Planificar el Involucramiento de los Interesados",
+      "Planificar la Gestión de las Comunicaciones",
+      "Planificar la Gestión de Recursos",
+      "Estimar los Recursos",
+      "Planificar la Gestión de Riesgos",
+      "Identificar Riesgos",
+      "Realizar el Análisis de Riesgos",
+      "Planificar la Respuesta a los Riesgos"
     ]
   },
   tip: {
