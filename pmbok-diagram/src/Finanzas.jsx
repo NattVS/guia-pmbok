@@ -20,6 +20,17 @@ const FINANZAS_DATA = {
     "Earned Value Management (EVM): integra alcance + tiempo + costo en tiempo real"
   ],
   areasEnfoque: ["Planeación", "Monitoreo y Control",],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Planificar la Gestión Financiera.",
+      "Estimar Costos.",
+      "Determinar el Presupuesto.",
+      "Monitorear y Controlar las Finanzas.",
+    ]
+  },
+
   tip: {
     subtitulo: "Tip de Estudio",
     info: "EVM: CPI = EV/AC (eficiencia de costo). EAC = BAC/CPI (estimación al completar). Un CPI < 0.8 es señal de alerta crítica que requiere acción inmediata del PM."
@@ -35,7 +46,7 @@ const FINANZAS_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleFinanzas() {
   const navigate = useNavigate();
@@ -234,6 +245,21 @@ export default function DetalleFinanzas() {
               </div>
             </div>
           )}
+
+          
+        {activeTab === "Procesos" && (
+          <div>
+            <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{FINANZAS_DATA.procesos.subtitulo}</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {FINANZAS_DATA.procesos.items.map((item, i) => (
+                <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
 
           {activeTab === "Tip" && (
             <div style={{ borderLeft: `4px solid ${GREEN_ACCENT}`, paddingLeft: "25px" }}>

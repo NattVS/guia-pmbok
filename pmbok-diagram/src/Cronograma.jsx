@@ -20,6 +20,16 @@ const CRONOGRAMA_DATA = {
     "Buffer de tiempo: reservas de contingencia para incertidumbre estimada"
   ],
   areasEnfoque: ["Planeación", "Monitoreo y Control",],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Planificar la Gestión del Cronograma.",
+      "Desarrollar el Cronograma.",
+      "Monitorear y Controlar el Cronograma.",
+    ]
+  },
+
   tip: {
     subtitulo: "Tip de Estudio",
     info: "SPI = EV/PV. SPI > 1: adelantado. SPI < 1: atrasado. Usar siempre junto con CPI para una visión completa del desempeño del proyecto."
@@ -35,7 +45,7 @@ const CRONOGRAMA_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleCronograma() {
   const navigate = useNavigate();
@@ -230,6 +240,20 @@ export default function DetalleCronograma() {
                   <span key={i} style={{ fontSize: "13px", padding: "6px 12px", background: "rgba(74, 222, 128, 0.1)", border: "1px solid rgba(74, 222, 128, 0.2)", borderRadius: "6px", color: "#d1fae5" }}>
                     {area}
                   </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          
+          {activeTab === "Procesos" && (
+            <div>
+              <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{CRONOGRAMA_DATA.procesos.subtitulo}</h3>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                {CRONOGRAMA_DATA.procesos.items.map((item, i) => (
+                  <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                    {item}
+                  </div>
                 ))}
               </div>
             </div>

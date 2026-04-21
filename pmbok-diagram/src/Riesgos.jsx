@@ -5,7 +5,7 @@ import logo from "../src/assets/Logo-Nuevo-Grande.png";
 // --- ESTRUCTURA DE LA INFO PARA "RIESGOS" (DOMINIO 6) ---
 const RIESGOS_DATA = {
   id: "06 - 07",
-  titulo: "Recursos",
+  titulo: "Riesgos",
   subtitulo: "Risk Domain",
   descripcion: "Identificar, analizar y responder a los riesgos (amenazas y oportunidades) que pueden afectar los objetivos del proyecto.",
   definicion: {
@@ -20,6 +20,19 @@ const RIESGOS_DATA = {
     "Reserva de contingencia (conocidos) vs. Reserva de gestión (desconocidos)"
   ],
   areasEnfoque: ["Planeación", "Ejecución", "Monitoreo y Control",],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Planificar la Gestión de Riesgos.",
+      "Identificar Riesgos.",
+      "Realizar el Análisis de Riesgos.",
+      "Planificar la Respuesta a los Riesgos.",
+      "Implementar la Respuesta a los Riesgos.",
+      "Monitorear los Riesgos.",
+    ]
+  },
+  
   tip: {
     subtitulo: "Tip de Estudio",
     info: "Un riesgo con probabilidad alta e impacto alto NO siempre es el prioritario. Considera también el URGENCY (¿cuándo impactará?) y el PROXIMITY (¿qué tan cerca está de ocurrir?)."
@@ -35,7 +48,7 @@ const RIESGOS_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleRiesgos() {
   const navigate = useNavigate();
@@ -234,6 +247,19 @@ export default function DetalleRiesgos() {
               </div>
             </div>
           )}
+
+        {activeTab === "Procesos" && (
+          <div>
+            <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{RIESGOS_DATA.procesos.subtitulo}</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {RIESGOS_DATA.procesos.items.map((item, i) => (
+                <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
           {activeTab === "Tip" && (
             <div style={{ borderLeft: `4px solid ${GREEN_ACCENT}`, paddingLeft: "25px" }}>

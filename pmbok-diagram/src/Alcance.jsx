@@ -20,6 +20,19 @@ const ALCANCE_DATA = {
     "Validar el Alcance: obtener aceptación formal de entregables completados"
   ],
   areasEnfoque: ["Planeación", "Monitoreo y Control",],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Planificar la Gestión del Alcance.",
+      "Obtener y Analizar Requisitos.",
+      "Definir el Alcance.",
+      "Desarrollar la Estructura del Alcance (EDT).",
+      "Monitorear y Controlar el Alcance.",
+      "Validar el Alcance.",
+    ]
+  },
+
   tip: {
     subtitulo: "Tip de Estudio",
     info: "Scope Creep vs. Gold Plating: el creep viene de stakeholders que piden más; el gold plating viene del equipo que da más de lo requerido. Ambos destruyen valor sin autorización."
@@ -35,7 +48,7 @@ const ALCANCE_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleAlcance() {
   const navigate = useNavigate();
@@ -234,6 +247,19 @@ export default function DetalleAlcance() {
               </div>
             </div>
           )}
+
+        {activeTab === "Procesos" && (
+          <div>
+            <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{ALCANCE_DATA.procesos.subtitulo}</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {ALCANCE_DATA.procesos.items.map((item, i) => (
+                <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
           {activeTab === "Tip" && (
             <div style={{ borderLeft: `4px solid ${GREEN_ACCENT}`, paddingLeft: "25px" }}>

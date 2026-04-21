@@ -19,7 +19,7 @@ const MONITOREOYCONTROL_DATA = {
   salidasPrincipales: ["Informes de desempeño", "Solicitudes de cambio", "Actualizaciones al plan y documentos", "Riesgos"],
 
   procesos: {
-    subtitulo: "Procesos Principales",
+    subtitulo: "Procesos Relacionados",
     items: [
       "Monitorear y controlar el rendimiento del proyecto.",
       "Monitorear y controlar el alcance.",
@@ -28,6 +28,10 @@ const MONITOREOYCONTROL_DATA = {
       "Monitorear y controlar los recursos.",
       "Monitorear los riesgos.",
       "Monitorear la participación de los interesados.",
+      "Evaluar e Implementar Cambios.",
+      "Validar el Alcance.",
+      "Monitorear las Comunicaciones.",
+      "Monitorear y Controlar la Asignación de Recursos.",
     ]
   },
 

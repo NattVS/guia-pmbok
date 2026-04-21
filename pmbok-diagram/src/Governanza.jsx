@@ -20,6 +20,22 @@ const GOBERNANZA_DATA = {
     "Matriz RACI: Responsable, Aprobador, Consultado, Informado"
   ],
   areasEnfoque: ["Inicio", "Planeación", "Ejecución", "Monitoreo y Control", "Cierre"],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Iniciar el Proyecto o Fase.",
+      "Integrar y Alinear los Planes del Proyecto.",
+      "Planificar la Estrategia de Adquisición de Recursos.",
+      "Gestionar la Ejecución del Proyecto.",
+      "Gestionar el Aseguramiento de la Calidad.",
+      "Gestionar el Conocimiento del Proyecto",
+      "Monitorear y Controlar el Desempeño del Proyecto.",
+      "Evaluar e Implementar Cambios.",
+      "Cerrar el Proyecto o Fase.",
+    ]
+  },
+
   tip: {
     subtitulo: "Tip de Estudio",
     info: "Muy poca gobernanza → falta de control. Demasiada → burocracia que destruye valor. El objetivo es el nivel 'justo' para el contexto del proyecto."
@@ -35,7 +51,7 @@ const GOBERNANZA_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleGobernanza() {
   const navigate = useNavigate();
@@ -230,6 +246,19 @@ export default function DetalleGobernanza() {
                   <span key={i} style={{ fontSize: "13px", padding: "6px 12px", background: "rgba(74, 222, 128, 0.1)", border: "1px solid rgba(74, 222, 128, 0.2)", borderRadius: "6px", color: "#d1fae5" }}>
                     {area}
                   </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Procesos" && (
+            <div>
+              <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{GOBERNANZA_DATA.procesos.subtitulo}</h3>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                {GOBERNANZA_DATA.procesos.items.map((item, i) => (
+                  <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                    {item}
+                  </div>
                 ))}
               </div>
             </div>

@@ -20,6 +20,20 @@ const INTERESADOS_DATA = {
     "Involucrar usuarios finales continuamente para validar que el valor es correcto"
   ],
   areasEnfoque: ["Inicio", "Planeación", "Ejecución", "Monitoreo y Control",],
+
+  procesos: {
+    subtitulo: "Procesos Relacionados",
+    items: [
+      "Identificar a los Interesados.",
+      "Planificar el Involucramiento de los Interesados.",
+      "Planificar la Gestión de las Comunicaciones.",
+      "Gestionar el Involucramiento de los Interesados.",
+      "Gestionar las Comunicaciones.",
+      "Monitorear el Involucramiento de los Interesados.",
+      "Monitorear las Comunicaciones.",
+    ]
+  },
+
   tip: {
     subtitulo: "Tip de Estudio",
     info: "Los stakeholders negativos o resistentes son TAN importantes como los positivos. Un stakeholder no gestionado puede cancelar el proyecto completo."
@@ -35,7 +49,7 @@ const INTERESADOS_DATA = {
   const BG_CARD = "rgba(255, 255, 255, 0.03)";
   const BORDER_CARD = "rgba(74, 222, 128, 0.25)";
 
-const TABS = ["Definición", "Puntos Clave", "Tip"];
+const TABS = ["Definición", "Puntos Clave", "Procesos", "Tip"];
 
 export default function DetalleInteresados() {
   const navigate = useNavigate();
@@ -234,6 +248,19 @@ export default function DetalleInteresados() {
               </div>
             </div>
           )}
+
+          {activeTab === "Procesos" && (
+            <div>
+              <h3 style={{ color: GREEN_ACCENT, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "15px" }}>{INTERESADOS_DATA.procesos.subtitulo}</h3>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                {INTERESADOS_DATA.procesos.items.map((item, i) => (
+                  <div key={i} style={{ background: "rgba(74, 222, 128, 0.1)", border: `1px solid ${BORDER_CARD}`, padding: "18px 22px", borderRadius: "12px", fontSize: "14px", fontWeight: 500, color: "#fff", display: "flex", alignItems: "center" }}>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+        )}
 
           {activeTab === "Tip" && (
             <div style={{ borderLeft: `4px solid ${GREEN_ACCENT}`, paddingLeft: "25px" }}>
