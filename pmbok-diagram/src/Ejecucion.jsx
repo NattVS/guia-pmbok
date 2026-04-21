@@ -26,6 +26,10 @@ const EJECUCION_DATA = {
       "Adquirir Recursos.",
       "Implementar Respuesta a los riesgos.",
       "Gestionar la participación de los interesados.",
+      "Gestionar el Aseguramiento de la Calidad.",
+      "Gestionar el Conocimiento del Proyecto",
+      "Gestionar las comunicaciones",
+      "Dirigir al Equipo",
     ]
   },
 

@@ -17,7 +17,7 @@ const PLANEACION_DATA = {
     "En adaptativos: planificación iterativa por ciclos (sprints)."
   ],
   procesos: {
-    subtitulo: "Procesos Principales",
+    subtitulo: "Procesos Relacionados",
     items: [
       "Integrar y Alinear los Planes del Proyecto",
       "Planificar la Estrategia de Adquisición de Recursos",
