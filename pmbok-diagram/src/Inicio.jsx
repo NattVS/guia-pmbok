@@ -18,7 +18,9 @@ const INICIO_DATA = {
   ],
   procesos: {
     subtitulo: "Procesos Principales",
-    items: ["Desarrollar el Acta de Constitución (Project Charter)", "Identificar a los Interesados (Stakeholders)"]
+    items: ["Iniciar el Proyecto o Fase", 
+      "Identificar a los Interesados (Stakeholders)",
+    ]
   },
   tip: {
     subtitulo: "TIP de Práctica",
