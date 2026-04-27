@@ -13,7 +13,7 @@ const PRINCIPIOS = [
   {
     id: "01",
     total: "06",
-    titulo: "Adoptar una visión holisitica",
+    titulo: "Adoptar una visión holistica",
     route: "/principios/vision-holistica",
     subtitulo: "Adopt a Holistic View",
     descripcion:

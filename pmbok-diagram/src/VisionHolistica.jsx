@@ -5,7 +5,7 @@ import logo from "../src/assets/Logo-Nuevo-Grande.png";
 // --- Estructura de la info para Visión Holistica ---
 const VISION_DATA = {
   id: "01 - 06",
-  titulo: "Adoptar una visión holisitica",
+  titulo: "Adoptar una visión holistica",
   subtitulo: "Adopt a Holistic View",
   descripcion: "Ver el proyecto como un sistema integrado considerando todas las interdependencias, desde el inicio hasta el cierre.",
   definicion: {

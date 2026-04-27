@@ -29,7 +29,7 @@ const DOMAINS = [
 const PRINCIPLES = [
   "Enfocarse \nen el valor", "Integrar calidad\n en procesos \ny entregables", 
   "Ser un líder\nresponsable", "Integrar la\nsostenibilidad", 
-  "Cosntruir \nuna cultura \nempoderada", "Adoptar una\nVisión holisitica"
+  "Cosntruir \nuna cultura \nempoderada", "Adoptar una\nVisión holistica"
 ];
 
 const CARD_DATA = [
