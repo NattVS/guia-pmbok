@@ -17,17 +17,17 @@ const Seccion5Procesos = () => {
     {
       domain: "Gobernanza",
       rows: [
-        { inicio: "Inicio de proyecto o fase", planeacion: "Integrar y alinear los planes del proyecto", ejecucion: "Gestionar la ejecución del proyecto", monitoreo: "Monitorear y controlar el rendimiento del proyecto", cierre: "Cierre de proyecto o fase" },
-        { inicio: "", planeacion: "Planear la estrategia de compras/adquisiciones", ejecucion: "Gestionar y garantizar calidad", monitoreo: "Evaluar y aplicar los cambios", cierre: "" },
+        { inicio: "Iniciar el proyecto o fase", planeacion: "Integrar y alinear los planes del proyecto", ejecucion: "Gestionar la ejecución del proyecto", monitoreo: "Monitorear y controlar el desempeño del proyecto", cierre: "Cerrar el proyecto o fase" },
+        { inicio: "", planeacion: "Planificar la estrategia de abastecimiento", ejecucion: "Gestionar el aseguramiento de la calidad", monitoreo: "Evaluar e implementar los cambios", cierre: "" },
         { inicio: "", planeacion: "", ejecucion: "Gestionar el conocimiento del proyecto", monitoreo: "", cierre: "" }
       ]
     },
     {
       domain: "Alcance",
       rows: [
-        { inicio: "", planeacion: "Planificación del alcance del proyecto", ejecucion: "", monitoreo: "Monitorear y controlar el alcance", cierre: "" },
-        { inicio: "", planeacion: "Obtener y analizar requisitos", ejecucion: "", monitoreo: "", cierre: "" },
-        { inicio: "", planeacion: "Definición del alcance", ejecucion: "", monitoreo: "Validar el alcance", cierre: "" },
+        { inicio: "", planeacion: "Planificar la gestión del alcance", ejecucion: "", monitoreo: "Monitorear y controlar el alcance", cierre: "" },
+        { inicio: "", planeacion: "Recopilar y analizar los requisitos", ejecucion: "", monitoreo: "", cierre: "" },
+        { inicio: "", planeacion: "Definir el alcance", ejecucion: "", monitoreo: "Validar el alcance", cierre: "" },
         { inicio: "", planeacion: "Desarrollar la estructura del alcance", ejecucion: "", monitoreo: "", cierre: "" }
       ]
     },
@@ -41,11 +41,20 @@ const Seccion5Procesos = () => {
     {
       domain: "Finanzas",
       rows: [
-        { inicio: "", planeacion: "Planificación de la gestión financiera", ejecucion: "", monitoreo: "Monitorear y controlar las finanzas", cierre: "" },
-        { inicio: "", planeacion: "Estimar el costo", ejecucion: "", monitoreo: "", cierre: "" },
-        { inicio: "", planeacion: "Elaborar el presupuesto", ejecucion: "", monitoreo: "", cierre: "" }
+        { inicio: "", planeacion: "Planificar la gestión financiera", ejecucion: "", monitoreo: "Monitorear y controlar las finanzas", cierre: "" },
+        { inicio: "", planeacion: "Estimar los costos", ejecucion: "", monitoreo: "", cierre: "" },
+        { inicio: "", planeacion: "Desarrollar el presupuesto", ejecucion: "", monitoreo: "", cierre: "" }
       ]
     },
+
+    {
+      domain: "Interesados",
+      rows: [
+        { inicio: "Identificar a los interesados", planeacion: "Planificar el involucramiento de los interesados", ejecucion: "Gestionar el compromiso de los interesados", monitoreo: "Monitorear el compromiso de los interesados", cierre: "" },
+        { inicio: "", planeacion: "Planificar la gestión de las comunicaciones", ejecucion: "Gestionar las comunicaciones", monitoreo: "Monitorear las comunicaciones", cierre: "" }
+      ]
+    },
+
     {
       domain: "Recursos",
       rows: [
@@ -56,19 +65,12 @@ const Seccion5Procesos = () => {
     {
       domain: "Riesgos",
       rows: [
-        { inicio: "", planeacion: "Planificar la gestión del riesgo", ejecucion: "Implementar respuestas a los riesgos", monitoreo: "Monitorear los riesgos", cierre: "" },
+        { inicio: "", planeacion: "Planificar la gestión de riesgos", ejecucion: "Implementar respuestas a los riesgos", monitoreo: "Monitorear los riesgos", cierre: "" },
         { inicio: "", planeacion: "Identificar riesgos", ejecucion: "", monitoreo: "", cierre: "" },
-        { inicio: "", planeacion: "Realizar análisis de riesgos", ejecucion: "", monitoreo: "", cierre: "" },
-        { inicio: "", planeacion: "Planificar las respuestas al riesgo", ejecucion: "", monitoreo: "", cierre: "" }
+        { inicio: "", planeacion: "Realizar el análisis de riesgos", ejecucion: "", monitoreo: "", cierre: "" },
+        { inicio: "", planeacion: "Planificar la respuesta a los riesgos", ejecucion: "", monitoreo: "", cierre: "" }
       ]
     },
-    {
-      domain: "Interesados",
-      rows: [
-        { inicio: "", planeacion: "Planificar la participación de los interesados", ejecucion: "Gestionar la participación de los interesados", monitoreo: "Monitorear la participación de los interesados", cierre: "" },
-        { inicio: "Identificar Interesados", planeacion: "Planificar gestión de las comunicaciones", ejecucion: "Gestionar las comunicaciones", monitoreo: "Monitorear las comunicaciones", cierre: "" }
-      ]
-    }
   ];
 
   const styles = {

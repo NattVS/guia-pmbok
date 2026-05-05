@@ -296,7 +296,7 @@ export default function Seccion1Principios() {
           transform: headerVisible ? "translateY(0)" : "translateY(10px)",
           transition: "all 0.5s ease 0.2s"
         }}>
-          Esta edición sintetiza los 12 principios previos en 6 principios fundamentales. No son reglas prescriptivas; 
+          Esta edición sintetiza los 6 principios fundamentales. No son reglas prescriptivas; 
           son una mentalidad que orienta decisiones y acciones hacia la entrega de valor real.
         </p>
 
